@@ -1,0 +1,48 @@
+.background-image {
+  background-image: url(./Images/HomeWallpaper.jpg);
+  background-size: contain;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+h1 {
+  font-size: 5em;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.home-content {
+  background-color: black;
+  padding: 1em 2em;
+  opacity: 0.8;
+  color: white;
+  display: grid;
+  font-size: xx-large;
+}
+
+.btn-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: black;
+  border-radius: 1em;
+  color: white;
+  font-size: xx-large;
+  height: 3em;
+  opacity: 0.8;
+  width: 10em;
+}
+
+button:hover {
+  background-color: bisque;
+  box-shadow: 5px 5px 5px black;
+  cursor: pointer;
+  color: black;
+  opacity: 1;
+  transition: 0.1s;
+  transform: scale(1.05);
+}
