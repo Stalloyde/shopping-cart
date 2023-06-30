@@ -1,5 +1,5 @@
 .background-image {
-  background-image: url(./Images/HomeWallpaper.jpg);
+  background-image: url(./HomeWallpaper.jpg);
   background-size: contain;
   height: 100vh;
   display: grid;
