@@ -19,6 +19,7 @@ h1 {
   color: white;
   display: grid;
   font-size: xx-large;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
 }
 
 .btn-container {
@@ -38,7 +39,7 @@ button {
 }
 
 button:hover {
-  background-color: bisque;
+  background-color: rgb(255, 228, 196);
   box-shadow: 5px 5px 5px black;
   cursor: pointer;
   color: black;
