@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Catalog from './components/catalog/Catalog';
 import Home from './components/homepage/Home';
 
-const RouteSwitch = () => {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -14,4 +14,4 @@ const RouteSwitch = () => {
   );
 };
 
-export default RouteSwitch;
+export default App;
