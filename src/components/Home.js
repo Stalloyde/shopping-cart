@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import { Link } from 'react-router-dom';
 
 const Home = () => (
   <div className='background-image'>
@@ -21,7 +22,9 @@ const Home = () => (
       the power of electrifying melodies today!
     </div>
     <div className='btn-container'>
-      <button>View Our Collection</button>
+      <Link to='Catalog'>
+        <button>View Our Collection</button>
+      </Link>
     </div>
   </div>
 );

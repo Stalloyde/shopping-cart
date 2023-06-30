@@ -4,7 +4,7 @@ import Header from '../Header';
 const Catalog = () => (
   <>
     <Header />
-    <div>Catalog</div>;
+    <div>Catalog</div>
   </>
 );
 
