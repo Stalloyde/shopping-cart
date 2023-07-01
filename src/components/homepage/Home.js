@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../catalog/Header';
+import Header from '../header/Header';
 import './Home.css';
 import { Link } from 'react-router-dom';
 
@@ -24,7 +24,7 @@ const Home = () => (
     </div>
     <div className='btn-container'>
       <Link to='/catalog'>
-        <button>View Our Collection</button>
+        <div>View Our Collection</div>
       </Link>
     </div>
   </div>
