@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from './Header';
+import Header from '../header/Header';
 
 const Catalog = () => (
   <>
     <Header />
-    <div>Catalog</div>
+    <div>SHOPPING CATALOG HERE</div>
   </>
 );
 
