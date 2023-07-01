@@ -20,7 +20,10 @@
   align-items: center;
 }
 
-button {
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: black;
   font-weight: bold;
   color: white;
@@ -31,7 +34,7 @@ button {
   text-decoration: underline;
 }
 
-button:hover {
+.button:hover {
   background-color: rgb(255, 228, 196);
   box-shadow: 5px 5px 5px black;
   cursor: pointer;
