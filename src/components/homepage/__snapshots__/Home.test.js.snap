@@ -1,13 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home component renders correct homepage 1`] = `
+exports[`Home component renders the hompeage 1`] = `
 <div
-  class="background-image"
+  class="home-container"
   data-testid="homepage"
 >
-  <h1>
-    ElectroTone Guitars
-  </h1>
+  <div
+    class="header"
+  >
+    <h1>
+      ElectroTone Guitars
+    </h1>
+    <a
+      href="/"
+    >
+      <div>
+        Home
+      </div>
+    </a>
+    <a
+      href="/catalog"
+    >
+      <div>
+        Catalog
+      </div>
+    </a>
+    <a
+      href="/cart"
+    >
+      <div>
+        Cart
+      </div>
+    </a>
+  </div>
   <div
     class="home-content"
   >
@@ -23,11 +48,11 @@ exports[`Home component renders correct homepage 1`] = `
     class="btn-container"
   >
     <a
-      href="/Catalog"
+      href="/catalog"
     >
-      <button>
+      <div>
         View Our Collection
-      </button>
+      </div>
     </a>
   </div>
 </div>
