@@ -1,6 +1,6 @@
 .header {
   display: grid;
-  grid-template-columns: 9fr 1fr 1fr;
+  grid-template-columns: 9fr 1fr 1fr 1fr;
   align-items: center;
   padding: 5rem;
   gap: 1rem;
@@ -10,13 +10,8 @@ h1 {
   font-size: 5rem;
 }
 
+.header > div,
 a {
-  text-decoration: inherit;
-  color: inherit;
-  cursor: inherit;
-}
-
-.header > div {
   padding: 0.3rem;
   font-size: 2rem;
   text-align: center;
@@ -24,9 +19,11 @@ a {
   font-weight: bold;
   color: white;
   opacity: 0.8;
+  text-decoration: underline;
 }
 
-.header > div:hover {
+.header > div:hover,
+a:hover {
   background-color: rgb(255, 228, 196);
   box-shadow: 5px 5px 5px black;
   cursor: pointer;
