@@ -1,10 +1,11 @@
 import React from 'react';
+import Header from '../catalog/Header';
 import './Home.css';
 import { Link } from 'react-router-dom';
 
 const Home = () => (
-  <div className='background-image' data-testid='homepage'>
-    <h1>ElectroTone Guitars</h1>
+  <div className='home-container' data-testid='homepage'>
+    <Header />
     <div className='home-content'>
       Welcome to our electric guitar paradise!
       <br />
@@ -22,7 +23,7 @@ const Home = () => (
       the power of electrifying melodies today!
     </div>
     <div className='btn-container'>
-      <Link to='Catalog'>
+      <Link to='/catalog'>
         <button>View Our Collection</button>
       </Link>
     </div>

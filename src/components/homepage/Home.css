@@ -1,20 +1,12 @@
-.background-image {
-  background-image: url(./HomeWallpaper.jpg);
-  background-size: contain;
+.home-container {
   height: 100vh;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
 }
 
-h1 {
-  font-size: 5em;
-  margin: 0 auto;
-  padding: 1em;
-}
-
 .home-content {
   background-color: black;
-  padding: 1em 2em;
+  padding: 2rem 5rem;
   opacity: 0.8;
   color: white;
   display: grid;
@@ -30,12 +22,12 @@ h1 {
 
 button {
   background-color: black;
-  border-radius: 1em;
+  font-weight: bold;
   color: white;
   font-size: xx-large;
-  height: 3em;
+  height: 5rem;
   opacity: 0.8;
-  width: 10em;
+  width: 23rem;
 }
 
 button:hover {
