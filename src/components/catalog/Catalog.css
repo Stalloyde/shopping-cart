@@ -35,7 +35,7 @@ li:hover {
 }
 
 .catalog-content {
-  overflow-y: auto;
+  overflow-y: scroll;
   padding: 1rem 5rem;
 }
 
@@ -43,11 +43,35 @@ li:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
-  padding-top: 1rem;
 }
 
-.products > div {
-  border: 1px solid blue;
-  height: 300px;
-  width: 300px;
+.card {
+  height: 500px;
+  background-color: black;
+  color: white;
+}
+
+.description {
+  display: grid;
+  grid-template-rows: 40px 50px 1fr;
+}
+
+.description > div {
+  padding: 0.2rem 1rem;
+}
+
+.add-to-cart {
+  display: grid;
+  grid-template-rows: 1fr 1fr 3fr;
+}
+
+input {
+  width: 15%;
+  height: 2rem;
+  margin-left: 1rem;
+}
+
+button {
+  height: 3rem;
+  width: 100%;
 }
