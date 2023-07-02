@@ -7,28 +7,5 @@
 }
 
 h1 {
-  font-size: 5rem;
-}
-
-.header > div,
-a {
-  padding: 0.3rem;
-  font-size: 2rem;
-  text-align: center;
-  background-color: black;
-  font-weight: bold;
-  color: white;
-  opacity: 0.8;
-  text-decoration: underline;
-}
-
-.header > div:hover,
-a:hover {
-  background-color: rgb(255, 228, 196);
-  box-shadow: 5px 5px 5px black;
-  cursor: pointer;
-  color: black;
-  opacity: 1;
-  transition: 0.1s;
-  transform: scale(1.05);
+  font-size: 4rem;
 }
