@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-.button {
+a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,7 @@
   text-decoration: underline;
 }
 
-.button:hover {
+a:hover {
   background-color: rgb(255, 228, 196);
   box-shadow: 5px 5px 5px black;
   cursor: pointer;

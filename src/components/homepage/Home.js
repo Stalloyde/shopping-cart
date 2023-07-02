@@ -24,7 +24,7 @@ const Home = () => (
     </div>
     <div className='btn-container'>
       <Link to='/catalog'>
-        <div className='button'>View Our Collection</div>
+        <div>View Our Collection</div>
       </Link>
     </div>
   </div>
