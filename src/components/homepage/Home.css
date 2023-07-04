@@ -5,11 +5,11 @@
 }
 
 .home-content {
+  display: grid;
   background-color: black;
   padding: 2rem 5rem;
   opacity: 0.8;
   color: white;
-  display: grid;
   font-size: xx-large;
   box-shadow: 0 0 20px rgb(0, 0, 0);
 }
