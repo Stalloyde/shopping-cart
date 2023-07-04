@@ -123,7 +123,7 @@ const guitars = [
     price: 400,
     imageSrc: require('./Images/schecter-Avenger Exotic.Spalted Maple.01.png'),
     height: '85%',
-    width: '35%',
+    width: '30%',
   },
   {
     brand: 'Schecter',
@@ -131,7 +131,7 @@ const guitars = [
     price: 400,
     imageSrc: require('./Images/schecter-E-1 Custom. Vintage Sunburst.01.png'),
     height: '85%',
-    width: '35%',
+    width: '30%',
   },
   {
     brand: 'Schecter',
@@ -139,7 +139,7 @@ const guitars = [
     price: 400,
     imageSrc: require('./Images/schecter-Hellraiser Hybrid C-1.Trans Black Burst (TBB).01.png'),
     height: '85%',
-    width: '35%',
+    width: '30%',
   },
   {
     brand: 'Schecter',
@@ -147,7 +147,7 @@ const guitars = [
     price: 400,
     imageSrc: require('./Images/schecter-Juan of the Dead V-1.Black Reign.01.png'),
     height: '85%',
-    width: '35%',
+    width: '30%',
   },
   {
     brand: 'Schecter',
@@ -155,7 +155,7 @@ const guitars = [
     price: 400,
     imageSrc: require('./Images/schecter-V-1 Custom.Trans Purple.01.png'),
     height: '85%',
-    width: '35%',
+    width: '30%',
   },
   {
     brand: 'Schecter',
@@ -163,7 +163,7 @@ const guitars = [
     price: 400,
     imageSrc: require('./Images/schecter-Aaron Marshall AM-7.Cobalt Slate.01.png'),
     height: '85%',
-    width: '35%',
+    width: '30%',
   },
   {
     brand: 'Kiesel',
@@ -171,7 +171,7 @@ const guitars = [
     price: 500,
     imageSrc: require('./Images/kiesel-a6h-main-137637.webp'),
     height: '85%',
-    width: '35%',
+    width: '30%',
   },
   {
     brand: 'Kiesel',
@@ -179,7 +179,7 @@ const guitars = [
     price: 500,
     imageSrc: require('./Images/kiesel-newa6c-efb-nin-scallopedfb-evoj-pthr-y-eph-rtf-g-bg-pen-ptb-ppg-gl.webp'),
     height: '85%',
-    width: '35%',
+    width: '30%',
   },
   {
     brand: 'Kiesel',
@@ -187,7 +187,7 @@ const guitars = [
     price: 500,
     imageSrc: require('./Images/kiesel-o6x-137486.webp'),
     height: '85%',
-    width: '35%',
+    width: '30%',
   },
   {
     brand: 'Fender',
