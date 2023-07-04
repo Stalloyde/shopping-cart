@@ -21,6 +21,9 @@ const Home = () => (
       With our passion for music and commitment to quality, we strive to provide
       you with an exceptional shopping experience. Explore our store and unleash
       the power of electrifying melodies today!
+      <br />
+      <br />
+      Our brands include Fender, Gibson, PRS, Kiesel and many more!
     </div>
     <div className='btn-container'>
       <Link to='/catalog'>
