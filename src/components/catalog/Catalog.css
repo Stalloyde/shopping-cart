@@ -2,15 +2,12 @@
   display: grid;
 }
 
-.brands {
-  padding: 1rem 5rem;
-}
-
 ul {
   display: flex;
   list-style: none;
   gap: 1rem;
   line-height: 2rem;
+  padding: 0 5rem;
 }
 
 li {
@@ -90,8 +87,10 @@ button:hover {
   background-color: rgb(255, 228, 196);
   box-shadow: 5px 5px 5px black;
   cursor: pointer;
-  color: black;
-  opacity: 1;
   transition: 0.1s;
   transform: scale(1.05);
+}
+
+input:hover {
+  cursor: pointer;
 }

@@ -280,7 +280,7 @@ const Card = (src, model, price) => (
   </>
 );
 
-const Catalog = () => {
+const FilterList = () => {
   const brandArray = guitars.map((item) => {
     return item.brand;
   });
@@ -290,18 +290,21 @@ const Catalog = () => {
   });
 
   return (
+    <ul>
+      Filter by:
+      <li>All brands</li>
+      {uniqueBrands.map((brand) => (
+        <li key={brand}>{brand}</li>
+      ))}
+    </ul>
+  );
+};
+
+const Catalog = () => {
+  return (
     <div className='catalog-container'>
       <Header />
-      <div className='brands'>
-        <ul>
-          Filter by:
-          <li>All brands</li>
-          {uniqueBrands.map((brand) => (
-            <li key={brand}>{brand}</li>
-          ))}
-        </ul>
-      </div>
-
+      <FilterList />
       <div className='catalog-content'>
         <div className='products'>
           <Card />
