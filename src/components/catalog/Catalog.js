@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../header/Header';
+import FilterList from './FilterList';
 import './Catalog.css';
 
 const guitars = [
@@ -280,31 +281,11 @@ const Card = (src, model, price) => (
   </>
 );
 
-const FilterList = () => {
-  const brandArray = guitars.map((item) => {
-    return item.brand;
-  });
-
-  const uniqueBrands = brandArray.filter((brand, index) => {
-    return brandArray.indexOf(brand) === index;
-  });
-
-  return (
-    <ul>
-      Filter by:
-      <li>All brands</li>
-      {uniqueBrands.map((brand) => (
-        <li key={brand}>{brand}</li>
-      ))}
-    </ul>
-  );
-};
-
 const Catalog = () => {
   return (
     <div className='catalog-container'>
       <Header />
-      <FilterList />
+      <FilterList guitars={guitars} />
       <div className='catalog-content'>
         <div className='products'>
           <Card />
