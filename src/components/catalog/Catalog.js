@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../header/Header';
-import FilterList from './FilterList';
+import FilterList from './FilterList/FilterList';
+import Card from './Card/Card';
 import './Catalog.css';
 
 const guitars = [
@@ -242,45 +243,6 @@ const guitars = [
   },
 ];
 
-const Card = (src, model, price) => (
-  <>
-    {guitars.map((item) => (
-      <div className='card' key={item.model}>
-        <div className='image-container'>
-          <img
-            src={item.imageSrc}
-            alt={item.model}
-            width={item.width}
-            height={item.height}
-          ></img>
-        </div>
-        <div className='description'>
-          <div>
-            <strong>{item.model}</strong>
-          </div>
-          <div>${item.price}</div>
-          <div className='add-to-cart'>
-            <>
-              <label>
-                Quantity:
-                <input
-                  name={item.model}
-                  type='number'
-                  min='1'
-                  defaultValue='1'
-                ></input>
-              </label>
-            </>
-            <div>
-              <button>Add To Cart</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    ))}
-  </>
-);
-
 const Catalog = () => {
   return (
     <div className='catalog-container'>
@@ -288,7 +250,7 @@ const Catalog = () => {
       <FilterList guitars={guitars} />
       <div className='catalog-content'>
         <div className='products'>
-          <Card />
+          <Card guitars={guitars} />
         </div>
       </div>
     </div>
