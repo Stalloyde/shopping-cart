@@ -280,29 +280,35 @@ const Card = (src, model, price) => (
   </>
 );
 
-const Catalog = () => (
-  <div className='catalog-container'>
-    <Header />
-    <div className='brands'>
-      <ul>
-        Filter by:
-        <li>All brands</li>
-        <li>PRS</li>
-        <li>Gibson</li>
-        <li>Ibanez</li>
-        <li>Schecter</li>
-        <li>Kiesel</li>
-        <li>Fender</li>
-        <li>Suhr</li>
-      </ul>
-    </div>
+const Catalog = () => {
+  const brandArray = guitars.map((item) => {
+    return item.brand;
+  });
 
-    <div className='catalog-content'>
-      <div className='products'>
-        <Card />
+  const uniqueBrands = brandArray.filter((brand, index) => {
+    return brandArray.indexOf(brand) === index;
+  });
+
+  return (
+    <div className='catalog-container'>
+      <Header />
+      <div className='brands'>
+        <ul>
+          Filter by:
+          <li>All brands</li>
+          {uniqueBrands.map((brand) => (
+            <li key={brand}>{brand}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className='catalog-content'>
+        <div className='products'>
+          <Card />
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Catalog;
