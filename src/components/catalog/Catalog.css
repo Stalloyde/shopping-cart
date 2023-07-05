@@ -68,10 +68,6 @@ li:hover {
   padding: 0.2rem 1rem;
 }
 
-button {
-  margin-top: 0.5rem;
-}
-
 input {
   width: 15%;
   height: 1.5rem;
@@ -79,6 +75,7 @@ input {
 }
 
 button {
+  margin-top: 0.5rem;
   height: 3rem;
   width: 100%;
 }
