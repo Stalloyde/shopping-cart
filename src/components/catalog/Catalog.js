@@ -3,6 +3,7 @@ import Header from '../header/Header';
 import FilterList from './FilterList/FilterList';
 import Card from './Card/Card';
 import './Catalog.css';
+import uniqid from 'uniqid';
 
 const guitars = [
   {
@@ -12,6 +13,8 @@ const guitars = [
     imageSrc: require('./Images/prs-ce24-black.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'PRS',
@@ -20,6 +23,8 @@ const guitars = [
     imageSrc: require('./Images/prs-john-mayer-silver-sky-maple.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'PRS',
@@ -28,6 +33,8 @@ const guitars = [
     imageSrc: require('./Images/prs-se-custom-24-vintage-sunburst.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'PRS',
@@ -36,6 +43,8 @@ const guitars = [
     imageSrc: require('./Images/prs-se-zach-myers-594-semi-hollow-myers-blue.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'PRS',
@@ -44,6 +53,8 @@ const guitars = [
     imageSrc: require('./Images/prs-studio-22-purple-mist.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Gibson',
@@ -52,6 +63,9 @@ const guitars = [
     imageSrc: require('./Images/gibson 70s explorer - classic white.png'),
     height: '85%',
     width: '45%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Gibson',
@@ -60,6 +74,9 @@ const guitars = [
     imageSrc: require('./Images/gibson firebird -tobacco burst.png'),
     height: '85%',
     width: '45%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Gibson',
@@ -68,6 +85,9 @@ const guitars = [
     imageSrc: require('./Images/gibson les paul special - tv yellowpng'),
     height: '85%',
     width: '45%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Gibson',
@@ -76,6 +96,9 @@ const guitars = [
     imageSrc: require('./Images/gibson les paul standard 60s.png'),
     height: '85%',
     width: '45%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Gibson',
@@ -84,6 +107,9 @@ const guitars = [
     imageSrc: require('./Images/gibson sg special-ebony.png'),
     height: '85%',
     width: '45%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Ibanez',
@@ -92,6 +118,8 @@ const guitars = [
     imageSrc: require('./Images/ibanez-ar520hfm-vls-violin-burst.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Ibanez',
@@ -101,6 +129,8 @@ const guitars = [
     imageSrc: require('./Images/ibanez-ftm33-wk-fredrik-thordendal-signature-8-string-w-case-weathered-black.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Ibanez',
@@ -110,6 +140,8 @@ const guitars = [
     imageSrc: require('./Images/ibanez-m80m-wj-meshuggah-signautre-8string-w-case-weathered-black.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Ibanez',
@@ -118,6 +150,8 @@ const guitars = [
     imageSrc: require('./Images/ibanez-prestige-lb-laser-blue.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Schecter',
@@ -126,6 +160,9 @@ const guitars = [
     imageSrc: require('./Images/schecter-Avenger Exotic.Spalted Maple.01.png'),
     height: '85%',
     width: '30%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Schecter',
@@ -134,6 +171,9 @@ const guitars = [
     imageSrc: require('./Images/schecter-E-1 Custom. Vintage Sunburst.01.png'),
     height: '85%',
     width: '30%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Schecter',
@@ -142,6 +182,9 @@ const guitars = [
     imageSrc: require('./Images/schecter-Hellraiser Hybrid C-1.Trans Black Burst (TBB).01.png'),
     height: '85%',
     width: '30%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Schecter',
@@ -150,6 +193,9 @@ const guitars = [
     imageSrc: require('./Images/schecter-Juan of the Dead V-1.Black Reign.01.png'),
     height: '85%',
     width: '30%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Schecter',
@@ -158,6 +204,9 @@ const guitars = [
     imageSrc: require('./Images/schecter-V-1 Custom.Trans Purple.01.png'),
     height: '85%',
     width: '30%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Schecter',
@@ -166,6 +215,9 @@ const guitars = [
     imageSrc: require('./Images/schecter-Aaron Marshall AM-7.Cobalt Slate.01.png'),
     height: '85%',
     width: '30%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Kiesel',
@@ -174,6 +226,9 @@ const guitars = [
     imageSrc: require('./Images/kiesel-a6h-main-137637.webp'),
     height: '85%',
     width: '30%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Kiesel',
@@ -182,6 +237,9 @@ const guitars = [
     imageSrc: require('./Images/kiesel-newa6c-efb-nin-scallopedfb-evoj-pthr-y-eph-rtf-g-bg-pen-ptb-ppg-gl.webp'),
     height: '85%',
     width: '30%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Kiesel',
@@ -190,6 +248,9 @@ const guitars = [
     imageSrc: require('./Images/kiesel-o6x-137486.webp'),
     height: '85%',
     width: '30%',
+
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Fender',
@@ -198,6 +259,8 @@ const guitars = [
     imageSrc: require('./Images/fender-american-vintage-77-tele-custom-rosewood-fb-olympic-white.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Fender',
@@ -207,6 +270,8 @@ const guitars = [
     imageSrc: require('./Images/fender-custom-shop-michael-landau-signature-1968-relic-strat-3-tone-sunburst.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Fender',
@@ -215,6 +280,8 @@ const guitars = [
     imageSrc: require('./Images/fender-gold-foil- telecaster-ebony-fb-white-blonde.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Fender',
@@ -224,6 +291,8 @@ const guitars = [
     imageSrc: require('./Images/fender-japan-traditional-60s-strat- aged-sherwood-green-metallic.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Fender',
@@ -232,6 +301,8 @@ const guitars = [
     imageSrc: require('./Images/fender-limited-edition-johny-marr-jaguar-fever-dream-yellow.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
   {
     brand: 'Fender',
@@ -240,6 +311,8 @@ const guitars = [
     imageSrc: require('./Images/fender-limited-edition-player-strat-maple-fb-black.webp'),
     height: '100%',
     width: '100%',
+    quantity: 0,
+    id: uniqid(),
   },
 ];
 
