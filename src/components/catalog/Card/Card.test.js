@@ -72,10 +72,6 @@ describe('Card', () => {
       .spyOn(React, 'useState')
       .mockImplementationOnce((cartArray) => [cartArray, setCartArray]);
 
-    jest
-      .spyOn(React, 'useState')
-      .mockImplementationOnce((isInCart) => [isInCart, setIsInCart]);
-
     const handleClickMock = jest.fn(() => {
       guitar.quantity = Number(3);
       setCartArray([guitar]);
