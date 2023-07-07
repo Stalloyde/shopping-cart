@@ -1,10 +1,19 @@
 import React from 'react';
 import { useState } from 'react';
 
-const Card = ({ guitars }) => {
-  // const [inputValue, setInputValue] = useState(1);
+const Card = ({
+  guitars,
+  guitarModel,
+  src,
+  width,
+  height,
+  guitarPrice,
+  id,
+  cartArray,
+  setCartArray,
+}) => {
   const [quantityToAddToCart, setQuantityToAddToCart] = useState(1);
-  const [cartArray, setCartArray] = useState([]);
+  const [isInCart, setIsInCart] = useState(false);
 
   const handleChange = (e) => {
     setQuantityToAddToCart(e.target.value);
@@ -15,49 +24,46 @@ const Card = ({ guitars }) => {
       if (item.id === e.target.id) {
         item.quantity = Number(quantityToAddToCart);
         setCartArray([...cartArray, item]);
+        setIsInCart(true);
       }
     });
+
+    console.log(cartArray);
   };
 
   return (
     <>
-      {guitars.map((item) => (
-        <div className='card' key={item.model}>
-          <div className='image-container'>
-            <img
-              src={item.imageSrc}
-              alt={item.model}
-              width={item.width}
-              height={item.height}
-            ></img>
+      <div className='card' key={guitarModel}>
+        <div className='image-container'>
+          <img src={src} alt={guitarModel} width={width} height={height}></img>
+        </div>
+        <div className='description'>
+          <div>
+            <strong>{guitarModel}</strong>
           </div>
-          <div className='description'>
-            <div>
-              <strong>{item.model}</strong>
+          <div>${guitarPrice}</div>
+          <div className='add-to-cart'>
+            <div className='input-container'>
+              <label>
+                Quantity:
+                <input
+                  onChange={handleChange}
+                  name={guitarModel}
+                  type='number'
+                  min='1'
+                  defaultValue='1'
+                ></input>
+              </label>
+              {isInCart ? <div>Added to Cart</div> : null}
             </div>
-            <div>${item.price}</div>
-            <div className='add-to-cart'>
-              <>
-                <label>
-                  Quantity:
-                  <input
-                    onChange={handleChange}
-                    name={item.model}
-                    type='number'
-                    min='1'
-                    defaultValue='1'
-                  ></input>
-                </label>
-              </>
-              <div>
-                <button id={item.id} onClick={handleClick}>
-                  Add To Cart
-                </button>
-              </div>
+            <div>
+              <button id={id} onClick={handleClick}>
+                Add To Cart
+              </button>
             </div>
           </div>
         </div>
-      ))}
+      </div>
     </>
   );
 };
