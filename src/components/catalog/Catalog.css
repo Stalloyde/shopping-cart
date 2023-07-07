@@ -31,8 +31,6 @@ li:hover {
 }
 
 .catalog-content {
-  overflow-y: scroll;
-
   padding: 1rem 5rem;
 }
 
@@ -43,11 +41,28 @@ li:hover {
 }
 
 .card {
+  position: relative;
   display: grid;
   grid-template-rows: 2fr 2fr;
   height: 540px;
   background-color: black;
   color: white;
+}
+
+.input-container {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.input-container > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: darkgreen;
+  text-align: center;
+  line-height: 2rem;
+  padding: 0.5rem;
 }
 
 .image-container {
