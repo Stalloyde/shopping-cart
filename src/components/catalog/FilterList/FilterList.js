@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FilterList = ({ guitars }) => {
+const FilterList = ({ guitars, filterBrand }) => {
   const brandArray = guitars.map((item) => {
     return item.brand;
   });
@@ -12,9 +12,11 @@ const FilterList = ({ guitars }) => {
   return (
     <ul>
       Filter by:
-      <li>All brands</li>
+      <li onClick={filterBrand}>All brands</li>
       {uniqueBrands.map((brand) => (
-        <li key={brand}>{brand}</li>
+        <li key={brand} onClick={filterBrand}>
+          {brand}
+        </li>
       ))}
     </ul>
   );
