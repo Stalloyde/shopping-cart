@@ -19,27 +19,3 @@
   justify-content: center;
   align-items: center;
 }
-
-a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: black;
-  font-weight: bold;
-  color: white;
-  font-size: x-large;
-  height: 5rem;
-  opacity: 0.8;
-  width: 15rem;
-  text-decoration: underline;
-}
-
-a:hover {
-  background-color: rgb(255, 228, 196);
-  box-shadow: 5px 5px 5px black;
-  cursor: pointer;
-  color: black;
-  opacity: 1;
-  transition: 0.1s;
-  transform: scale(1.05);
-}
