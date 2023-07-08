@@ -1,0 +1,74 @@
+.card {
+  position: relative;
+  display: grid;
+  grid-template-rows: 2fr 2fr;
+  height: 540px;
+  background-color: black;
+  color: white;
+}
+
+.input-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.input-container > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: darkgreen;
+  text-align: center;
+  line-height: 2rem;
+  padding: 0.5rem;
+}
+
+#dialog-container {
+  background-color: darkgreen;
+}
+
+#dialog-content {
+  font-size: large;
+  color: white;
+}
+
+.image-container {
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.description {
+  display: grid;
+  align-items: center;
+  grid-template-rows: 70px 50px 70px;
+}
+
+.description > div {
+  padding: 0.2rem 1rem;
+}
+
+input {
+  width: 25%;
+  height: 1.5rem;
+  margin-left: 1rem;
+}
+
+button {
+  margin-top: 0.5rem;
+  height: 3rem;
+  width: 100%;
+}
+
+button:hover {
+  background-color: rgb(255, 228, 196);
+  box-shadow: 5px 5px 5px black;
+  cursor: pointer;
+  transition: 0.1s;
+  transform: scale(1.05);
+}
+
+input:hover {
+  cursor: pointer;
+}

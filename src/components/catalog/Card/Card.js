@@ -1,5 +1,9 @@
 import React from 'react';
+import './Card.css';
 import { useState } from 'react';
+import { Dialog } from '@mui/material';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
 
 const Card = ({
   guitars,
@@ -14,6 +18,11 @@ const Card = ({
 }) => {
   const [quantityToAddToCart, setQuantityToAddToCart] = useState(1);
   const [isInCart, setIsInCart] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleChange = (e) => {
     setQuantityToAddToCart(e.target.value);
@@ -25,6 +34,7 @@ const Card = ({
         item.quantity = Number(quantityToAddToCart);
         setCartArray([...cartArray, item]);
         setIsInCart(true);
+        setOpen(true);
       }
     });
 
@@ -54,7 +64,17 @@ const Card = ({
                   defaultValue='1'
                 ></input>
               </label>
-              {isInCart ? <div>Added to Cart</div> : null}
+              {isInCart ? (
+                <Dialog open={open} onClose={handleClose}>
+                  <div>
+                    <DialogContent id='dialog-container'>
+                      <DialogContentText id='dialog-content'>
+                        <strong>{guitarModel}</strong> has been added to cart
+                      </DialogContentText>
+                    </DialogContent>
+                  </div>
+                </Dialog>
+              ) : null}
             </div>
             <div>
               <button id={id} onClick={handleClick}>
