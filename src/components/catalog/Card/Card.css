@@ -23,12 +23,12 @@
 }
 
 #dialog-container {
-  background-color: darkgreen;
+  background-color: bisque;
 }
 
 #dialog-content {
   font-size: large;
-  color: white;
+  color: black;
 }
 
 .image-container {
