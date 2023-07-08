@@ -6,8 +6,7 @@ import './Catalog.css';
 import { useState } from 'react';
 import guitars from './guitars';
 
-const Catalog = () => {
-  const [cartArray, setCartArray] = useState([]);
+const Catalog = ({ cartArray, setCartArray }) => {
   const [brandFiltered, setBrandFiltered] = useState([]);
 
   const filterBrand = (e) => {
@@ -18,10 +17,11 @@ const Catalog = () => {
     });
     setBrandFiltered(filteredGuitars);
   };
+  console.log(cartArray);
 
   return (
     <div className='catalog-container'>
-      <Header />
+      <Header cartArray={cartArray} />
       <FilterList guitars={guitars} filterBrand={filterBrand} />
       <div className='catalog-content'>
         <div className='products'>

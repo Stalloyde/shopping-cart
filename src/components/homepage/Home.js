@@ -3,9 +3,9 @@ import Header from '../header/Header';
 import './Home.css';
 import { Link } from 'react-router-dom';
 
-const Home = () => (
+const Home = ({ cartArray }) => (
   <div className='home-container' data-testid='homepage'>
-    <Header />
+    <Header cartArray={cartArray} />
     <div className='home-content'>
       Welcome to our electric guitar paradise!
       <br />

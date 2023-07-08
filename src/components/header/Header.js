@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 
-const Header = () => (
+const Header = ({ cartArray }) => (
   <div className='header'>
     <h1>ElectroTone Guitars</h1>
     <Link to='/'>
@@ -13,6 +13,7 @@ const Header = () => (
     </Link>
     <Link to='/cart'>
       <div>Cart</div>
+      <div className='cart-array'>{cartArray.length}</div>
     </Link>
   </div>
 );

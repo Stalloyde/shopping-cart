@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from '../header/Header';
 
-const Cart = () => (
+const Cart = ({ cartArray }) => (
   <>
-    <Header />
+    <Header cartArray={cartArray} />
     <div> SHOPPING CART HERE </div>
   </>
 );
