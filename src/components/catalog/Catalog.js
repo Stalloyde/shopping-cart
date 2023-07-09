@@ -17,7 +17,6 @@ const Catalog = ({ cartArray, setCartArray }) => {
     });
     setBrandFiltered(filteredGuitars);
   };
-  console.log(cartArray);
 
   return (
     <div className='catalog-container'>
