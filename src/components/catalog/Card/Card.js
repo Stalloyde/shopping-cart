@@ -23,22 +23,32 @@ const Card = ({
   const handleClose = () => {
     setOpen(false);
   };
-
   const handleChange = (e) => {
     setQuantityToAddToCart(e.target.value);
+  };
+
+  const checkDuplicate = (item) => {
+    const copy = cartArray.map((cartItem) => cartItem);
+    let isDuplicate = false;
+
+    copy.forEach((copy) => {
+      if (copy.model === item.model) {
+        copy.quantity = item.quantity;
+        isDuplicate = true;
+      }
+    });
+    isDuplicate ? setCartArray([...copy]) : setCartArray([...copy, item]);
   };
 
   const handleClick = (e) => {
     guitars.forEach((item) => {
       if (item.id === e.target.id) {
-        item.quantity = Number(quantityToAddToCart);
-        setCartArray([...cartArray, item]);
+        item.quantity += Number(quantityToAddToCart);
+        checkDuplicate(item);
         setIsInCart(true);
         setOpen(true);
       }
     });
-
-    console.log(cartArray);
   };
 
   return (
