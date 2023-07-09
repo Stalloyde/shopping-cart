@@ -65,7 +65,7 @@ const Card = ({
           <div className='add-to-cart'>
             <div className='input-container'>
               <label>
-                Quantity:
+                Quantity: {''}
                 <input
                   onChange={handleChange}
                   name={guitarModel}
