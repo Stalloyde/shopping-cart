@@ -79,19 +79,17 @@ const Cart = ({
           </>
         ) : (
           <>
-            <div className='cart-grids-container'>
-              {cartArray.map((item) => (
-                <CartGrids
-                  item={item}
-                  key={item.model}
-                  id={item.id}
-                  quantityToAddToCart={quantityToAddToCart}
-                  setQuantityToAddToCart={setQuantityToAddToCart}
-                  cartArray={cartArray}
-                  setCartArray={setCartArray}
-                />
-              ))}
-            </div>
+            {cartArray.map((item) => (
+              <CartGrids
+                item={item}
+                key={item.model}
+                id={item.id}
+                quantityToAddToCart={quantityToAddToCart}
+                setQuantityToAddToCart={setQuantityToAddToCart}
+                cartArray={cartArray}
+                setCartArray={setCartArray}
+              />
+            ))}
             <div className='checkout-container'>
               <div className='total'>{`Total: $${sum()}`}</div>
               <button>Check Out Cart</button>
