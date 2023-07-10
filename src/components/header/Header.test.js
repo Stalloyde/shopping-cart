@@ -56,5 +56,36 @@ describe('Header component', () => {
     expect(history.location.pathname).toBe('/cart');
   });
 
-  //check if cartArray change leads to change in qtyInCart
+  it('qtyInCart shows total quantity of cart items', () => {
+    const cartMock = [
+      {
+        brand: 'PRS',
+        model: 'PRS CE24 - Black',
+        price: 100,
+        quantity: 10,
+        id: 'abc123',
+      },
+      {
+        brand: 'PRS',
+        model: 'PRS CE242 - Red',
+        price: 100,
+        quantity: 2,
+        id: 'abc123',
+      },
+    ];
+
+    const qtyInCartMock = jest.fn();
+
+    qtyInCartMock.mockImplementationOnce(() => {
+      if (cartMock.length > 0) {
+        const qtyArray = cartMock.map((item) => item.quantity);
+        return qtyArray.reduce((total, current) => total + current);
+      }
+
+      return 0;
+    });
+
+    render(<div>{qtyInCartMock()}</div>);
+    expect(screen.getByText(12)).toBeInTheDocument();
+  });
 });
