@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/shopping-cart/static/css/main.57c59d71.css",
-    "main.js": "/shopping-cart/static/js/main.dc7c5280.js",
+    "main.css": "/shopping-cart/static/css/main.b8ce20a8.css",
+    "main.js": "/shopping-cart/static/js/main.e2245cad.js",
     "static/media/schecter-Avenger Exotic.Spalted Maple.01.png": "/shopping-cart/static/media/schecter-Avenger Exotic.Spalted Maple.01.3eb3741132df36a473db.png",
     "static/media/schecter-Aaron Marshall AM-7.Cobalt Slate.01.png": "/shopping-cart/static/media/schecter-Aaron Marshall AM-7.Cobalt Slate.01.39db56c736b0dba10276.png",
     "static/media/schecter-Hellraiser Hybrid C-1.Trans Black Burst (TBB).01.png": "/shopping-cart/static/media/schecter-Hellraiser Hybrid C-1.Trans Black Burst (TBB).01.9ea1c41a26ef09fbfa05.png",
@@ -33,11 +33,11 @@
     "static/media/ibanez-ftm33-wk-fredrik-thordendal-signature-8-string-w-case-weathered-black.webp": "/shopping-cart/static/media/ibanez-ftm33-wk-fredrik-thordendal-signature-8-string-w-case-weathered-black.bed57826312fb138c103.webp",
     "static/media/ibanez-m80m-wj-meshuggah-signautre-8string-w-case-weathered-black.webp": "/shopping-cart/static/media/ibanez-m80m-wj-meshuggah-signautre-8string-w-case-weathered-black.92e97787e58d7bcfbcd4.webp",
     "index.html": "/shopping-cart/index.html",
-    "main.57c59d71.css.map": "/shopping-cart/static/css/main.57c59d71.css.map",
-    "main.dc7c5280.js.map": "/shopping-cart/static/js/main.dc7c5280.js.map"
+    "main.b8ce20a8.css.map": "/shopping-cart/static/css/main.b8ce20a8.css.map",
+    "main.e2245cad.js.map": "/shopping-cart/static/js/main.e2245cad.js.map"
   },
   "entrypoints": [
-    "static/css/main.57c59d71.css",
-    "static/js/main.dc7c5280.js"
+    "static/css/main.b8ce20a8.css",
+    "static/js/main.e2245cad.js"
   ]
 }
