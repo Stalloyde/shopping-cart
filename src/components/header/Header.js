@@ -12,7 +12,6 @@ const Header = ({ cartArray }) => {
     return 0;
   };
 
-  qtyInCart();
   return (
     <div className='header'>
       <h1>ElectroTone Guitars</h1>
