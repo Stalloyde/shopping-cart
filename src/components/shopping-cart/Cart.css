@@ -30,7 +30,7 @@
 
 .cart-details > div {
   font-size: larger;
-  padding: 1rem;
+  padding: 0.8rem;
 }
 
 .cart-delete {
@@ -38,10 +38,15 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  background-color: white;
 }
 
 .cart-delete > button {
   width: 60%;
+}
+
+.cart-grids-container {
+  padding: 1rem;
 }
 
 .checkout-container {
