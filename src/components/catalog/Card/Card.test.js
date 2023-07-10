@@ -90,7 +90,7 @@ describe('Card', () => {
 
   it('Added to Cart notification renders on button click', async () => {
     const setIsInCart = jest.fn();
-    const openMock = jest.fn();
+    const openMock = jest.fn(() => true);
     const handleClickMock = jest.fn();
     const user = userEvent.setup();
 
@@ -101,7 +101,7 @@ describe('Card', () => {
     render(
       <div>
         {setIsInCart ? (
-          <Dialog open={openMock}>
+          <Dialog open={openMock()}>
             <div>
               <DialogContent id='dialog-container'>
                 <DialogContentText id='dialog-content'>
