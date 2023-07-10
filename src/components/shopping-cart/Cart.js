@@ -3,7 +3,7 @@ import Header from '../header/Header';
 import './Cart.css';
 import { Link } from 'react-router-dom';
 
-const CartGrids = ({
+export const CartGrids = ({
   item,
   setQuantityToAddToCart,
   cartArray,
