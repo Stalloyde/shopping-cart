@@ -30,7 +30,6 @@ const App = () => {
             <Cart
               cartArray={cartArray}
               setCartArray={setCartArray}
-              quantityToAddToCart={quantityToAddToCart}
               setQuantityToAddToCart={setQuantityToAddToCart}
             />
           }
