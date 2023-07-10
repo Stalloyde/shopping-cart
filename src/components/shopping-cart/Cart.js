@@ -3,10 +3,21 @@ import Header from '../header/Header';
 import './Cart.css';
 import { Link } from 'react-router-dom';
 
-const CartGrids = ({ item, setQuantityToAddToCart }) => {
+const CartGrids = ({
+  item,
+  setQuantityToAddToCart,
+  cartArray,
+  setCartArray,
+}) => {
   const handleChange = (e) => {
     item.quantity = Number(e.target.value);
     setQuantityToAddToCart(item.quantity);
+  };
+
+  const handleDelete = (e) => {
+    const copy = [...cartArray];
+    const updatedCopy = copy.filter((item) => item.id !== e.target.id);
+    setCartArray([...updatedCopy]);
   };
 
   return (
@@ -32,13 +43,20 @@ const CartGrids = ({ item, setQuantityToAddToCart }) => {
       </div>
 
       <div className='cart-delete'>
-        <button>Delete Item</button>
+        <button id={item.id} onClick={handleDelete}>
+          Delete
+        </button>
       </div>
     </div>
   );
 };
 
-const Cart = ({ cartArray, quantityToAddToCart, setQuantityToAddToCart }) => {
+const Cart = ({
+  cartArray,
+  setCartArray,
+  quantityToAddToCart,
+  setQuantityToAddToCart,
+}) => {
   const sum = () => {
     const pricexQuantityArray = cartArray.map(
       (item) => item.price * item.quantity
@@ -69,6 +87,8 @@ const Cart = ({ cartArray, quantityToAddToCart, setQuantityToAddToCart }) => {
                   id={item.id}
                   quantityToAddToCart={quantityToAddToCart}
                   setQuantityToAddToCart={setQuantityToAddToCart}
+                  cartArray={cartArray}
+                  setCartArray={setCartArray}
                 />
               ))}
             </div>
