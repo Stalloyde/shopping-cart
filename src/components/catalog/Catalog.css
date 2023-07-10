@@ -4,6 +4,7 @@ ul {
   gap: 1rem;
   line-height: 2rem;
   padding: 0 5rem;
+  width: 1500px;
 }
 
 li {
@@ -32,6 +33,6 @@ li:hover {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
   gap: 1rem;
 }
