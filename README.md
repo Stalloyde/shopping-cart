@@ -1,3 +1,5 @@
+An e-commerce site that sells guitars, built using React.
+
 Image credits:
 
 Photo by <a href="https://unsplash.com/@diegocatto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Diego Catto</a> on <a href="https://unsplash.com/photos/DI6ywiG5N0g?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
