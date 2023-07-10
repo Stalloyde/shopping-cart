@@ -1,8 +1,6 @@
 .cart-container {
+  width: 100%;
   padding: 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .cart-content {
@@ -46,13 +44,10 @@
   width: 60%;
 }
 
-.cart-grids-container {
-  padding: 1rem;
-}
-
 .checkout-container {
   position: fixed;
   bottom: 0;
+  left: 0;
   margin-top: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
