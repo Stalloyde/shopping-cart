@@ -5,7 +5,6 @@ import userEvent from '@testing-library/user-event';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { act } from 'react-dom/test-utils';
-import Header from './Header';
 import { Link } from 'react-router-dom';
 
 describe('Header component', () => {
