@@ -15,8 +15,9 @@ const Card = ({
   id,
   cartArray,
   setCartArray,
+  quantityToAddToCart,
+  setQuantityToAddToCart,
 }) => {
-  const [quantityToAddToCart, setQuantityToAddToCart] = useState(1);
   const [isInCart, setIsInCart] = useState(false);
   const [open, setOpen] = useState(false);
 

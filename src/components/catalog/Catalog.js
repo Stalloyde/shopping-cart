@@ -6,7 +6,12 @@ import './Catalog.css';
 import { useState } from 'react';
 import guitars from './guitars';
 
-const Catalog = ({ cartArray, setCartArray }) => {
+const Catalog = ({
+  cartArray,
+  setCartArray,
+  quantityToAddToCart,
+  setQuantityToAddToCart,
+}) => {
   const [brandFiltered, setBrandFiltered] = useState([]);
 
   const filterBrand = (e) => {
@@ -37,6 +42,8 @@ const Catalog = ({ cartArray, setCartArray }) => {
                   id={item.id}
                   cartArray={cartArray}
                   setCartArray={setCartArray}
+                  quantityToAddToCart={quantityToAddToCart}
+                  setQuantityToAddToCart={setQuantityToAddToCart}
                 />
               ))
             : guitars.map((item) => (
@@ -51,6 +58,8 @@ const Catalog = ({ cartArray, setCartArray }) => {
                   id={item.id}
                   cartArray={cartArray}
                   setCartArray={setCartArray}
+                  quantityToAddToCart={quantityToAddToCart}
+                  setQuantityToAddToCart={setQuantityToAddToCart}
                 />
               ))}
         </div>

@@ -7,6 +7,7 @@ import './App.css';
 
 const App = () => {
   const [cartArray, setCartArray] = useState([]);
+  const [quantityToAddToCart, setQuantityToAddToCart] = useState(1);
 
   return (
     <BrowserRouter>
@@ -15,12 +16,24 @@ const App = () => {
         <Route
           path='/catalog'
           element={
-            <Catalog cartArray={cartArray} setCartArray={setCartArray} />
+            <Catalog
+              cartArray={cartArray}
+              setCartArray={setCartArray}
+              quantityToAddToCart={quantityToAddToCart}
+              setQuantityToAddToCart={setQuantityToAddToCart}
+            />
           }
         />
         <Route
           path='/cart'
-          element={<Cart cartArray={cartArray} setCartArray={setCartArray} />}
+          element={
+            <Cart
+              cartArray={cartArray}
+              setCartArray={setCartArray}
+              quantityToAddToCart={quantityToAddToCart}
+              setQuantityToAddToCart={setQuantityToAddToCart}
+            />
+          }
         />
       </Routes>
     </BrowserRouter>
