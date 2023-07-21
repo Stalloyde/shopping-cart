@@ -4,7 +4,7 @@
   height: 100vh;
 }
 
-.home-content {
+.home-main {
   display: grid;
   background-color: black;
   padding: 2rem 5rem;
@@ -14,7 +14,7 @@
   box-shadow: 0 0 20px rgb(0, 0, 0);
 }
 
-.btn-container {
+.home-btn-container {
   display: grid;
   justify-content: center;
   align-items: center;

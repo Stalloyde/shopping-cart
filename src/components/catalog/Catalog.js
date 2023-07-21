@@ -27,7 +27,7 @@ const Catalog = ({
     <div className='catalog-container'>
       <Header cartArray={cartArray} />
       <FilterList guitars={guitars} filterBrand={filterBrand} />
-      <div className='catalog-content'>
+      <main className='catalog-content'>
         <div className='products'>
           {brandFiltered.length > 0
             ? brandFiltered.map((item) => (
@@ -63,7 +63,7 @@ const Catalog = ({
                 />
               ))}
         </div>
-      </div>
+      </main>
     </div>
   );
 };

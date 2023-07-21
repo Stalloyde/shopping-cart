@@ -12,7 +12,8 @@
   padding: 0.5rem 5rem;
 }
 
-.cart-content > div {
+.cart-content > div,
+.cart-content > section {
   border: 1px solid black;
 }
 

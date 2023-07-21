@@ -13,19 +13,21 @@ const Header = ({ cartArray }) => {
   };
 
   return (
-    <div className='header'>
+    <header>
       <h1>ElectroTone Guitars</h1>
-      <Link to='/'>
-        <div>Home</div>
-      </Link>
-      <Link to='/catalog'>
-        <div>Catalog</div>
-      </Link>
-      <Link to='/cart'>
-        <div>Cart</div>
-        <div className='cart-array'>{qtyInCart()}</div>
-      </Link>
-    </div>
+      <nav>
+        <Link to='/'>
+          <div>Home</div>
+        </Link>
+        <Link to='/catalog'>
+          <div>Catalog</div>
+        </Link>
+        <Link to='/cart'>
+          <div>Cart</div>
+          <div className='cart-array'>{qtyInCart()}</div>
+        </Link>
+      </nav>
+    </header>
   );
 };
 

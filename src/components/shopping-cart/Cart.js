@@ -21,11 +21,16 @@ export const CartGrids = ({
   };
 
   return (
-    <div className='cart-content'>
+    <article className='cart-content'>
       <div className='cart-image-container'>
-        <img src={item.imageSrc} height={item.height} width={item.width}></img>
+        <img
+          src={item.imageSrc}
+          height={item.height}
+          width={item.width}
+          alt={item.model}
+        ></img>
       </div>
-      <div className='cart-details'>
+      <section className='cart-details'>
         <div>
           <h3>{item.model}</h3>
         </div>
@@ -40,14 +45,14 @@ export const CartGrids = ({
           ></input>
         </div>
         <div>Subtotal: {`$${item.price * item.quantity}`}</div>
-      </div>
+      </section>
 
-      <div className='cart-delete'>
+      <section className='cart-delete'>
         <button id={item.id} onClick={handleDelete}>
           Delete
         </button>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 };
 
@@ -67,7 +72,7 @@ const Cart = ({
   return (
     <>
       <Header cartArray={cartArray} />
-      <div className='cart-container'>
+      <main className='cart-container'>
         {cartArray.length === 0 ? (
           <>
             Your shopping cart is currently empty.
@@ -79,7 +84,7 @@ const Cart = ({
           </>
         ) : (
           <>
-            <div className='cart-grids-container'>
+            <section className='cart-grids-container'>
               {cartArray.map((item) => (
                 <CartGrids
                   item={item}
@@ -91,14 +96,14 @@ const Cart = ({
                   setCartArray={setCartArray}
                 />
               ))}
-            </div>
-            <div className='checkout-container'>
+            </section>
+            <footer className='checkout-container'>
               <div className='total'>{`Total: $${sum()}`}</div>
               <button>Check Out Cart</button>
-            </div>
+            </footer>
           </>
         )}
-      </div>
+      </main>
     </>
   );
 };

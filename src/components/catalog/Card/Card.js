@@ -54,11 +54,11 @@ const Card = ({
 
   return (
     <>
-      <div className='card' key={guitarModel}>
+      <article className='card' key={guitarModel}>
         <div className='image-container'>
           <img src={src} alt={guitarModel} width={width} height={height}></img>
         </div>
-        <div className='description'>
+        <section className='description'>
           <div>
             <strong>{guitarModel}</strong>
           </div>
@@ -93,8 +93,8 @@ const Card = ({
               </button>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </article>
     </>
   );
 };

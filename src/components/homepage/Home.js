@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Home = ({ cartArray }) => (
   <div className='home-container' data-testid='homepage'>
     <Header cartArray={cartArray} />
-    <div className='home-content'>
+    <main className='home-main'>
       Welcome to our electric guitar paradise!
       <br />
       <br />
@@ -24,12 +24,12 @@ const Home = ({ cartArray }) => (
       <br />
       <br />
       Our brands include Fender, Gibson, PRS, Kiesel and many more!
-    </div>
-    <div className='btn-container'>
+    </main>
+    <aside className='home-btn-container'>
       <Link to='/catalog'>
         <div>View Our Collection</div>
       </Link>
-    </div>
+    </aside>
   </div>
 );
 
