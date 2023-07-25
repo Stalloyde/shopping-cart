@@ -1,6 +1,11 @@
 .cart-container {
   width: 100%;
   padding: 5rem;
+  text-align: center;
+}
+
+.cart-container > a {
+  margin: 0 auto;
 }
 
 .cart-content {
