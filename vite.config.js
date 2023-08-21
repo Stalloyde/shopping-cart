@@ -19,5 +19,10 @@ export default defineConfig(() => {
         // translateType: "importMetaUrl" | "import";
       }),
     ],
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: './src/setup.js',
+    },
   };
 });

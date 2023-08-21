@@ -1,5 +1,5 @@
 import React from 'react';
-import '@testing-library/jest-dom';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Router } from 'react-router-dom';
@@ -74,7 +74,7 @@ describe('Header component', () => {
       },
     ];
 
-    const qtyInCartMock = jest.fn();
+    const qtyInCartMock = vi.fn();
 
     qtyInCartMock.mockImplementationOnce(() => {
       if (cartMock.length > 0) {

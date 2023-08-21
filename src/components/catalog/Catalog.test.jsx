@@ -1,5 +1,5 @@
 import React from 'react';
-import '@testing-library/jest-dom';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Card from './Card/Card';
 import FilterList from './FilterList/FilterList';
@@ -70,11 +70,12 @@ describe('Catalog Card', () => {
   });
 
   it('on filter - array contains only selected brands', async () => {
-    const setState = jest.fn();
+    const setState = vi.fn();
 
-    jest
-      .spyOn(React, 'useState')
-      .mockImplementationOnce((initState) => initState, setState);
+    vi.spyOn(React, 'useState').mockImplementationOnce(
+      (initState) => initState,
+      setState
+    );
 
     const filterBrandMock = (e) => {
       const filteredGuitars = guitars.filter((guitar) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import '@testing-library/jest-dom';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
@@ -32,13 +32,14 @@ describe('Card', () => {
   });
 
   it('delete button removes cart item', async () => {
-    const setCartArray = jest.fn();
-    const handleDeleteMock = jest.fn();
+    const setCartArray = vi.fn();
+    const handleDeleteMock = vi.fn();
     const user = userEvent.setup();
 
-    jest
-      .spyOn(React, 'useState')
-      .mockImplementationOnce((initState) => [initState, setCartArray]);
+    vi.spyOn(React, 'useState').mockImplementationOnce((initState) => [
+      initState,
+      setCartArray,
+    ]);
 
     handleDeleteMock.mockImplementation((e) => {
       const copy = [cartMock];
@@ -60,15 +61,13 @@ describe('Card', () => {
 
   it('quantity change in input reflects on cart items quantity', async () => {
     const user = userEvent.setup();
-    const setQuantityToAddToCart = jest.fn();
-    const handleChangeMock = jest.fn();
+    const setQuantityToAddToCart = vi.fn();
+    const handleChangeMock = vi.fn();
 
-    jest
-      .spyOn(React, 'useState')
-      .mockImplementationOnce((initState) => [
-        initState,
-        setQuantityToAddToCart,
-      ]);
+    vi.spyOn(React, 'useState').mockImplementationOnce((initState) => [
+      initState,
+      setQuantityToAddToCart,
+    ]);
 
     handleChangeMock.mockImplementation((e) => {
       cartMock.quantity = Number(e.target.value);

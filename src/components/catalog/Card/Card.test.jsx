@@ -1,5 +1,5 @@
 import React from 'react';
-import '@testing-library/jest-dom';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Card from './Card';
 import uniqid from 'uniqid';
@@ -42,12 +42,13 @@ describe('Card', () => {
   });
 
   it('input value change is passed to setQuantityToAddToCart state correctly', async () => {
-    const setState = jest.fn();
-    jest
-      .spyOn(React, 'useState')
-      .mockImplementationOnce((initState) => [initState, setState]);
+    const setState = vi.fn();
+    vi.spyOn(React, 'useState').mockImplementationOnce((initState) => [
+      initState,
+      setState,
+    ]);
 
-    const handleChangeMock = jest.fn((e) => {
+    const handleChangeMock = vi.fn((e) => {
       const value = Number(e.target.value);
       setState(value);
     });
@@ -68,14 +69,15 @@ describe('Card', () => {
   });
 
   it('Correct quantity is passed into setCartArray on button click', async () => {
-    const setCartArray = jest.fn();
+    const setCartArray = vi.fn();
     const user = userEvent.setup();
 
-    jest
-      .spyOn(React, 'useState')
-      .mockImplementationOnce((cartArray) => [cartArray, setCartArray]);
+    vi.spyOn(React, 'useState').mockImplementationOnce((cartArray) => [
+      cartArray,
+      setCartArray,
+    ]);
 
-    const handleClickMock = jest.fn(() => {
+    const handleClickMock = vi.fn(() => {
       guitar.quantity = Number(3);
       setCartArray([guitar]);
     });
@@ -89,14 +91,15 @@ describe('Card', () => {
   });
 
   it('Added to Cart notification renders on button click', async () => {
-    const setIsInCart = jest.fn();
-    const openMock = jest.fn(() => true);
-    const handleClickMock = jest.fn();
+    const setIsInCart = vi.fn();
+    const openMock = vi.fn(() => true);
+    const handleClickMock = vi.fn();
     const user = userEvent.setup();
 
-    jest
-      .spyOn(React, 'useState')
-      .mockImplementationOnce((isInCart) => [isInCart, setIsInCart]);
+    vi.spyOn(React, 'useState').mockImplementationOnce((isInCart) => [
+      isInCart,
+      setIsInCart,
+    ]);
 
     render(
       <div>
@@ -124,16 +127,17 @@ describe('Card', () => {
   });
 
   it('cart Array merges quantity for duplicate products instead of adding as separate object', async () => {
-    const setCartArray = jest.fn();
-    const handleClickMock = jest.fn(() => {
+    const setCartArray = vi.fn();
+    const handleClickMock = vi.fn(() => {
       const inputValueMock = 4;
       guitar.quantity += inputValueMock;
     });
     const user = userEvent.setup();
 
-    jest
-      .spyOn(React, 'useState')
-      .mockImplementationOnce((cartArray) => [cartArray, setCartArray]);
+    vi.spyOn(React, 'useState').mockImplementationOnce((cartArray) => [
+      cartArray,
+      setCartArray,
+    ]);
 
     render(
       <button data-testid='test' id={guitar.id} onClick={handleClickMock}>
