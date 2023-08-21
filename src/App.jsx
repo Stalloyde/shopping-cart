@@ -8,13 +8,12 @@ import './App.css';
 const App = () => {
   const [cartArray, setCartArray] = useState([]);
   const [quantityToAddToCart, setQuantityToAddToCart] = useState(1);
-
   return (
     <Routes>
       <Route path='/' element={<Home cartArray={cartArray} />} />
       <Route
         path='/catalog'
-        element={
+        element={     
           <Catalog
             cartArray={cartArray}
             setCartArray={setCartArray}

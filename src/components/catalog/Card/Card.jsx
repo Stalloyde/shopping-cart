@@ -24,6 +24,7 @@ const Card = ({
   const handleClose = () => {
     setOpen(false);
   };
+
   const handleChange = (e) => {
     setQuantityToAddToCart(e.target.value);
   };
