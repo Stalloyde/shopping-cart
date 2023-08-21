@@ -77,7 +77,7 @@ const guitars = [
     brand: 'Gibson',
     model: 'Gibson Les Paul Special - TV Yellow',
     price: 200,
-    imageSrc: require('./Images/gibson les paul special - tv yellowpng'),
+    imageSrc: require('./Images/gibson les paul special - tv yellow.png'),
     height: '85%',
     width: '45%',
 
