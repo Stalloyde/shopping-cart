@@ -1,7 +1,7 @@
 import React from 'react';
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import FilterList from './FilterList';
+import { CartContext } from '../../../Router';
 
 describe('Filter List', () => {
   const guitars = [

@@ -3,15 +3,18 @@ import Header from '../header/Header';
 import FilterList from './FilterList/FilterList';
 import Card from './Card/Card';
 import './Catalog.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import guitars from './guitars';
+import { CartContext } from '../../Router';
 
-const Catalog = ({
-  cartArray,
-  setCartArray,
-  quantityToAddToCart,
-  setQuantityToAddToCart,
-}) => {
+const Catalog = () => {
+  const {
+    cartArray,
+    setCartArray,
+    quantityToAddToCart,
+    setQuantityToAddToCart,
+  } = useContext(CartContext);
+
   const [brandFiltered, setBrandFiltered] = useState([]);
 
   const filterBrand = (e) => {

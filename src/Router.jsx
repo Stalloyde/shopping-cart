@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Catalog from './components/catalog/Catalog';
 import Home from './components/homepage/Home';
 import Cart from './components/shopping-cart/Cart';
 import './Router.css';
 
+export const CartContext = createContext();
 const Router = () => {
   const [cartArray, setCartArray] = useState([]);
   const [quantityToAddToCart, setQuantityToAddToCart] = useState(1);
@@ -12,40 +13,30 @@ const Router = () => {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: (
-        <Home
-          cartArray={cartArray}
-          setCartArray={setCartArray}
-          quantityToAddToCart={quantityToAddToCart}
-          setQuantityToAddToCart={setQuantityToAddToCart}
-        />
-      ),
+      element: <Home />,
     },
     {
       path: '/catalog',
-      element: (
-        <Catalog
-          cartArray={cartArray}
-          setCartArray={setCartArray}
-          quantityToAddToCart={quantityToAddToCart}
-          setQuantityToAddToCart={setQuantityToAddToCart}
-        />
-      ),
+      element: <Catalog />,
     },
     {
       path: '/cart',
-      element: (
-        <Cart
-          cartArray={cartArray}
-          setCartArray={setCartArray}
-          quantityToAddToCart={quantityToAddToCart}
-          setQuantityToAddToCart={setQuantityToAddToCart}
-        />
-      ),
+      element: <Cart />,
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <CartContext.Provider
+      value={{
+        cartArray,
+        setCartArray,
+        quantityToAddToCart,
+        setQuantityToAddToCart,
+      }}
+    >
+      <RouterProvider router={router} />
+    </CartContext.Provider>
+  );
 };
 
 export default Router;

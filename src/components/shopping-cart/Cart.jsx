@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../header/Header';
 import './Cart.css';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../Router';
 
-export const CartGrids = ({
-  item,
-  setQuantityToAddToCart,
-  cartArray,
-  setCartArray,
-}) => {
+export const CartGrids = ({ item }) => {
+  const { cartArray, setCartArray, setQuantityToAddToCart } =
+    useContext(CartContext);
+
   const handleChange = (e) => {
     item.quantity = Number(e.target.value);
     setQuantityToAddToCart(item.quantity);
@@ -56,12 +55,10 @@ export const CartGrids = ({
   );
 };
 
-const Cart = ({
-  cartArray,
-  setCartArray,
-  quantityToAddToCart,
-  setQuantityToAddToCart,
-}) => {
+const Cart = () => {
+  const { cartArray, setCartArray, setQuantityToAddToCart } =
+    useContext(CartContext);
+
   const sum = () => {
     const pricexQuantityArray = cartArray.map(
       (item) => item.price * item.quantity
