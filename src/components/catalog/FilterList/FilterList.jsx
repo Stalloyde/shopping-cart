@@ -2,26 +2,37 @@ import React, { useEffect, useState } from 'react';
 
 const FilterList = ({ filterProducts }) => {
   const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     async function getAllCategories() {
-      const response = await fetch(
-        'https://fakestoreapi.com/products/categories'
-      );
-      const data = await response.json();
-      setCategories(data);
+      try {
+        const response = await fetch(
+          'https://fakestoreapi.com/products/categories'
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            `This is an HTTP error: The status is ${response.status}`
+          );
+        }
+
+        const data = await response.json();
+        setCategories(data);
+        setErrorMessage(null);
+      } catch (error) {
+        setErrorMessage(error.message);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     getAllCategories();
   }, []);
 
-  // const brandArray = products.map((item) => {
-  //   return item.brand;
-  // });
-
-  // const uniqueBrands = brandArray.filter((brand, index) => {
-  //   return brandArray.indexOf(brand) === index;
-  // });
+  if (isLoading) return <ul>Loading...</ul>;
+  if (errorMessage) return <ul>{errorMessage}</ul>;
 
   return (
     <ul>

@@ -37,3 +37,10 @@ li:hover {
   grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
   gap: 1rem;
 }
+
+.loading,
+.error {
+  margin-top: 50vh;
+  margin-left: 45vw;
+  width: 10%;
+}
