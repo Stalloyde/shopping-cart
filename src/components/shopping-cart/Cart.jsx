@@ -79,7 +79,7 @@ const Cart = () => {
             Your shopping cart is currently empty.
             <br />
             <br />
-            <Link to='/catalog'>
+            <Link className='home-nav' to='/catalog'>
               <div>View Our Collection</div>
             </Link>
           </>
