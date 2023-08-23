@@ -74,6 +74,7 @@ input:hover {
 }
 
 img {
+  padding: 3rem;
   object-fit: contain;
   height: 100%;
   width: 100%;
