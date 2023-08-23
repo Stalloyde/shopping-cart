@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <header>
-      <h1>ElectroTone Guitars</h1>
+      <h1>Tech & Threads</h1>
       <nav>
         <Link to='/'>
           <div>Home</div>

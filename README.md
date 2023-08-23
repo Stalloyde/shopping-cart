@@ -1,8 +1,8 @@
-An e-commerce site that sells guitars, built using React.
+An e-commerce site that sells a variety of items
 
 Image credits:
 
-Photo by <a href="https://unsplash.com/@diegocatto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Diego Catto</a> on <a href="https://unsplash.com/photos/DI6ywiG5N0g?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+Image by <a href="https://www.freepik.com/free-photo/colorful-shopping-bags_1248943.htm#query=shopping%20background&position=50&from_view=keyword&track=ais">Freepik</a>
 
 SVG Icon from: https://fonts.google.com/icons
 
