@@ -10,7 +10,8 @@ ul {
 li {
   background-color: black;
   color: white;
-  width: 6rem;
+  width: max-content;
+  padding: 0 1rem;
   height: 2rem;
   text-align: center;
   line-height: 2rem;

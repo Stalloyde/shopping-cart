@@ -6,6 +6,7 @@ import './Catalog.css';
 
 const Catalog = () => {
   const [products, setProducts] = useState([{}]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     async function getAllData() {
@@ -17,50 +18,46 @@ const Catalog = () => {
     getAllData();
   }, []);
 
-  console.log(products);
-  // const [brandFiltered, setBrandFiltered] = useState([]);
-
-  // const filterBrand = (e) => {
-  //   const filteredGuitars = guitars.filter((guitar) => {
-  //     if (e.target.textContent === guitar.brand) {
-  //       return guitar;
-  //     }
-  //   });
-  //   setBrandFiltered(filteredGuitars);
-  // };
+  const filterProducts = (e) => {
+    const filteredProducts = products.filter((product) => {
+      if (
+        JSON.stringify(e.target.textContent.toLowerCase()) ===
+        JSON.stringify(product.category)
+      ) {
+        return product;
+      }
+    });
+    setFilteredProducts(filteredProducts);
+    console.log(filteredProducts);
+  };
 
   return (
     <div className='catalog-container'>
       <Header />
-      {/* <FilterList guitars={guitars} filterBrand={filterBrand} /> */}
+      <FilterList filterProducts={filterProducts} />
       <main className='catalog-content'>
         <div className='products'>
-          {
-            // brandFiltered.length > 0
-            //   ? brandFiltered.map((item) => (
-            //       <Card
-            //         guitars={guitars}
-            //         key={item.model}
-            //         guitarModel={item.model}
-            //         src={item.imageSrc}
-            //         width={item.width}
-            //         height={item.height}
-            //         guitarPrice={item.price}
-            //         id={item.id}
-            //       />
-            //     ))
-            //   :
-            products.map((item) => (
-              <Card
-                products={products}
-                key={`${item.id}-${item.title}`}
-                productTitle={item.title}
-                src={item.image}
-                productPrice={item.price}
-                id={item.id}
-              />
-            ))
-          }
+          {filteredProducts.length < 1
+            ? products.map((item) => (
+                <Card
+                  products={products}
+                  key={`${item.id}-${item.title}`}
+                  productTitle={item.title}
+                  src={item.image}
+                  productPrice={item.price}
+                  id={item.id}
+                />
+              ))
+            : filteredProducts.map((item) => (
+                <Card
+                  products={products}
+                  key={`${item.id}-${item.title}`}
+                  productTitle={item.title}
+                  src={item.image}
+                  productPrice={item.price}
+                  id={item.id}
+                />
+              ))}
         </div>
       </main>
     </div>
