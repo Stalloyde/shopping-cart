@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../header/Header';
-import FilterList from './FilterList/FilterList';
 import Card from './Card/Card';
 import './Catalog.css';
 import loading from '../../components/loading.gif';
