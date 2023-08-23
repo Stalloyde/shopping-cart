@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const FilterList = ({ filterProducts }) => {
   const [categories, setCategories] = useState([]);
@@ -37,10 +38,14 @@ const FilterList = ({ filterProducts }) => {
   return (
     <ul>
       Filter by:
-      <li onClick={filterProducts}>All Categories</li>
-      {categories.map((brand) => (
-        <li key={brand} onClick={filterProducts}>
-          {brand.charAt(0).toUpperCase() + brand.slice(1)}
+      <li>
+        <Link to='all products'>All Categories</Link>
+      </li>
+      {categories.map((category) => (
+        <li key={category}>
+          <Link to={`${category}`}>
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+          </Link>
         </li>
       ))}
     </ul>

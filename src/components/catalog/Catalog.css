@@ -7,18 +7,19 @@ ul {
   width: 1500px;
 }
 
-li {
+a {
   background-color: black;
   color: white;
   width: max-content;
-  padding: 0 1rem;
+  padding: 1rem;
   height: 2rem;
   text-align: center;
   line-height: 2rem;
   border-radius: 10rem;
+  text-decoration: none;
 }
 
-li:hover {
+a:hover {
   background-color: rgb(255, 228, 196);
   box-shadow: 5px 5px 5px black;
   cursor: pointer;
@@ -40,7 +41,8 @@ li:hover {
 
 .loading,
 .error {
-  margin-top: 50vh;
-  margin-left: 45vw;
+  position: absolute;
+  top: 20%;
+  left: 45%;
   width: 10%;
 }

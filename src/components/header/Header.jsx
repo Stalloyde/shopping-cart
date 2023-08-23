@@ -19,13 +19,13 @@ const Header = () => {
     <header>
       <h1>Tech & Threads</h1>
       <nav>
-        <Link to='/'>
+        <Link className='home-nav' to='/'>
           <div>Home</div>
         </Link>
-        <Link to='/catalog'>
+        <Link className='home-nav' to='/catalog/all products'>
           <div>Catalog</div>
         </Link>
-        <Link to='/cart'>
+        <Link className='home-nav' to='/cart'>
           <div>Cart</div>
           <div className='cart-array'>{qtyInCart()}</div>
         </Link>

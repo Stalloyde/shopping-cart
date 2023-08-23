@@ -28,7 +28,7 @@ const Home = () => {
         shopping!
       </main>
       <aside className='home-btn-container'>
-        <Link to='/catalog'>
+        <Link className='home-nav' to='/catalog/all products'>
           <div>View Our Collection</div>
         </Link>
       </aside>
