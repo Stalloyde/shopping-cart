@@ -56,8 +56,12 @@ export const CartGrids = ({ item }) => {
 };
 
 const Cart = () => {
-  const { cartArray, setCartArray, setQuantityToAddToCart } =
-    useContext(CartContext);
+  const {
+    cartArray,
+    setCartArray,
+    quantityToAddToCart,
+    setQuantityToAddToCart,
+  } = useContext(CartContext);
 
   const sum = () => {
     const pricexQuantityArray = cartArray.map(

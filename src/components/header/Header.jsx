@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../Router';
 
-const Header = ({ cartArray }) => {
+const Header = () => {
+  const { cartArray } = useContext(CartContext);
+
   const qtyInCart = () => {
     if (cartArray.length > 0) {
       const qtyArray = cartArray.map((item) => item.quantity);

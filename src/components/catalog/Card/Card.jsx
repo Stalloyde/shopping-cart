@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import './Card.css';
-import { useState } from 'react';
 import { Dialog } from '@mui/material';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+import { CartContext } from '../../../Router';
 
 const Card = ({
   guitars,
@@ -13,11 +13,14 @@ const Card = ({
   height,
   guitarPrice,
   id,
-  cartArray,
-  setCartArray,
-  quantityToAddToCart,
-  setQuantityToAddToCart,
 }) => {
+  const {
+    cartArray,
+    setCartArray,
+    quantityToAddToCart,
+    setQuantityToAddToCart,
+  } = useContext(CartContext);
+
   const [isInCart, setIsInCart] = useState(false);
   const [open, setOpen] = useState(false);
 

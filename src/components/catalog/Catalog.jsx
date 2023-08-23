@@ -1,20 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../header/Header';
 import FilterList from './FilterList/FilterList';
 import Card from './Card/Card';
 import './Catalog.css';
-import { useState, useContext } from 'react';
 import guitars from './guitars';
-import { CartContext } from '../../Router';
 
 const Catalog = () => {
-  const {
-    cartArray,
-    setCartArray,
-    quantityToAddToCart,
-    setQuantityToAddToCart,
-  } = useContext(CartContext);
-
   const [brandFiltered, setBrandFiltered] = useState([]);
 
   const filterBrand = (e) => {
@@ -28,7 +19,7 @@ const Catalog = () => {
 
   return (
     <div className='catalog-container'>
-      <Header cartArray={cartArray} />
+      <Header />
       <FilterList guitars={guitars} filterBrand={filterBrand} />
       <main className='catalog-content'>
         <div className='products'>
@@ -43,10 +34,6 @@ const Catalog = () => {
                   height={item.height}
                   guitarPrice={item.price}
                   id={item.id}
-                  cartArray={cartArray}
-                  setCartArray={setCartArray}
-                  quantityToAddToCart={quantityToAddToCart}
-                  setQuantityToAddToCart={setQuantityToAddToCart}
                 />
               ))
             : guitars.map((item) => (
@@ -59,10 +46,6 @@ const Catalog = () => {
                   height={item.height}
                   guitarPrice={item.price}
                   id={item.id}
-                  cartArray={cartArray}
-                  setCartArray={setCartArray}
-                  quantityToAddToCart={quantityToAddToCart}
-                  setQuantityToAddToCart={setQuantityToAddToCart}
                 />
               ))}
         </div>
