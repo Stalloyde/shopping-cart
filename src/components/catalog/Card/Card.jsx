@@ -5,15 +5,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import { CartContext } from '../../../Router';
 
-const Card = ({
-  guitars,
-  guitarModel,
-  src,
-  width,
-  height,
-  guitarPrice,
-  id,
-}) => {
+const Card = ({ products, productTitle, src, productPrice, id }) => {
   const {
     cartArray,
     setCartArray,
@@ -46,7 +38,7 @@ const Card = ({
   };
 
   const handleClick = (e) => {
-    guitars.forEach((item) => {
+    products.forEach((item) => {
       if (item.id === e.target.id) {
         item.quantity += Number(quantityToAddToCart);
         checkDuplicate(item);
@@ -58,22 +50,22 @@ const Card = ({
 
   return (
     <>
-      <article className='card' key={guitarModel}>
+      <article className='card' key={productTitle}>
         <div className='image-container'>
-          <img src={src} alt={guitarModel} width={width} height={height}></img>
+          <img src={src} alt={productTitle}></img>
         </div>
         <section className='description'>
           <div>
-            <strong>{guitarModel}</strong>
+            <strong>{productTitle}</strong>
           </div>
-          <div>${guitarPrice}</div>
+          <div>${productPrice}</div>
           <div className='add-to-cart'>
             <div className='input-container'>
               <label>
                 Quantity: {''}
                 <input
                   onChange={handleChange}
-                  name={guitarModel}
+                  name={productTitle}
                   type='number'
                   min='1'
                   defaultValue='1'
@@ -84,7 +76,7 @@ const Card = ({
                   <div>
                     <DialogContent id='dialog-container'>
                       <DialogContentText id='dialog-content'>
-                        <strong>{guitarModel}</strong> has been added to cart
+                        <strong>{productTitle}</strong> has been added to cart
                       </DialogContentText>
                     </DialogContent>
                   </div>

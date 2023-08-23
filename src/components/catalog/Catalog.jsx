@@ -1,53 +1,66 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../header/Header';
 import FilterList from './FilterList/FilterList';
 import Card from './Card/Card';
 import './Catalog.css';
-import guitars from './guitars';
 
 const Catalog = () => {
-  const [brandFiltered, setBrandFiltered] = useState([]);
+  const [products, setProducts] = useState([{}]);
 
-  const filterBrand = (e) => {
-    const filteredGuitars = guitars.filter((guitar) => {
-      if (e.target.textContent === guitar.brand) {
-        return guitar;
-      }
-    });
-    setBrandFiltered(filteredGuitars);
-  };
+  useEffect(() => {
+    async function getAllData() {
+      const response = await fetch('https://fakestoreapi.com/products');
+      const data = await response.json();
+      setProducts(data);
+    }
+
+    getAllData();
+  }, []);
+
+  console.log(products);
+  // const [brandFiltered, setBrandFiltered] = useState([]);
+
+  // const filterBrand = (e) => {
+  //   const filteredGuitars = guitars.filter((guitar) => {
+  //     if (e.target.textContent === guitar.brand) {
+  //       return guitar;
+  //     }
+  //   });
+  //   setBrandFiltered(filteredGuitars);
+  // };
 
   return (
     <div className='catalog-container'>
       <Header />
-      <FilterList guitars={guitars} filterBrand={filterBrand} />
+      {/* <FilterList guitars={guitars} filterBrand={filterBrand} /> */}
       <main className='catalog-content'>
         <div className='products'>
-          {brandFiltered.length > 0
-            ? brandFiltered.map((item) => (
-                <Card
-                  guitars={guitars}
-                  key={item.model}
-                  guitarModel={item.model}
-                  src={item.imageSrc}
-                  width={item.width}
-                  height={item.height}
-                  guitarPrice={item.price}
-                  id={item.id}
-                />
-              ))
-            : guitars.map((item) => (
-                <Card
-                  guitars={guitars}
-                  key={item.model}
-                  guitarModel={item.model}
-                  src={item.imageSrc}
-                  width={item.width}
-                  height={item.height}
-                  guitarPrice={item.price}
-                  id={item.id}
-                />
-              ))}
+          {
+            // brandFiltered.length > 0
+            //   ? brandFiltered.map((item) => (
+            //       <Card
+            //         guitars={guitars}
+            //         key={item.model}
+            //         guitarModel={item.model}
+            //         src={item.imageSrc}
+            //         width={item.width}
+            //         height={item.height}
+            //         guitarPrice={item.price}
+            //         id={item.id}
+            //       />
+            //     ))
+            //   :
+            products.map((item) => (
+              <Card
+                products={products}
+                key={`${item.id}-${item.title}`}
+                productTitle={item.title}
+                src={item.image}
+                productPrice={item.price}
+                id={item.id}
+              />
+            ))
+          }
         </div>
       </main>
     </div>

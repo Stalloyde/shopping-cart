@@ -72,3 +72,9 @@ input {
 input:hover {
   cursor: pointer;
 }
+
+img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
