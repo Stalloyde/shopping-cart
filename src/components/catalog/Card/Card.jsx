@@ -6,15 +6,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import { CartContext } from '../../../Router';
 
 const Card = ({ products, productTitle, src, productPrice, id }) => {
-  const {
-    cartArray,
-    setCartArray,
-    quantityToAddToCart,
-    setQuantityToAddToCart,
-  } = useContext(CartContext);
+  const { cartArray, setCartArray } = useContext(CartContext);
 
   const [isInCart, setIsInCart] = useState(false);
   const [open, setOpen] = useState(false);
+  const [quantityToAddToCart, setQuantityToAddToCart] = useState(1);
 
   const handleClose = () => {
     setOpen(false);
@@ -29,7 +25,7 @@ const Card = ({ products, productTitle, src, productPrice, id }) => {
     let isDuplicate = false;
 
     copy.forEach((copy) => {
-      if (copy.model === item.model) {
+      if (copy.id === item.id) {
         copy.quantity = item.quantity;
         isDuplicate = true;
       }
@@ -39,8 +35,13 @@ const Card = ({ products, productTitle, src, productPrice, id }) => {
 
   const handleClick = (e) => {
     products.forEach((item) => {
-      if (item.id === e.target.id) {
-        item.quantity += Number(quantityToAddToCart);
+      if (item.id === Number(e.target.id)) {
+        if (!item.quantity) {
+          item.quantity = Number(quantityToAddToCart);
+        } else {
+          item.quantity += Number(quantityToAddToCart);
+        }
+
         checkDuplicate(item);
         setIsInCart(true);
         setOpen(true);
