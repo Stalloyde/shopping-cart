@@ -31,7 +31,7 @@ export const CartGrids = ({ cartItem }) => {
       </div>
       <section className='cart-details'>
         <div>
-          <h3>{cartItem.model}</h3>
+          <h3>{cartItem.title}</h3>
         </div>
         <div>{`Price: $${cartItem.price}`}</div>
         <div>
