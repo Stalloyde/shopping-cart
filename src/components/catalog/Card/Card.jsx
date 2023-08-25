@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Card.css';
 import { Dialog } from '@mui/material';
 import DialogContent from '@mui/material/DialogContent';
@@ -7,17 +7,16 @@ import { CartContext } from '../../../Router';
 
 const Card = ({ products, productTitle, src, productPrice, id }) => {
   const { cartArray, setCartArray } = useContext(CartContext);
-
   const [isInCart, setIsInCart] = useState(false);
   const [open, setOpen] = useState(false);
-  const [quantityToAddToCart, setQuantityToAddToCart] = useState(1);
+  const [qtyValue, setQtyValue] = useState(1);
 
   const handleClose = () => {
     setOpen(false);
   };
 
   const handleChange = (e) => {
-    setQuantityToAddToCart(e.target.value);
+    setQtyValue(e.target.value);
   };
 
   const checkDuplicate = (item) => {
@@ -37,9 +36,9 @@ const Card = ({ products, productTitle, src, productPrice, id }) => {
     products.forEach((item) => {
       if (item.id === Number(e.target.id)) {
         if (!item.quantity) {
-          item.quantity = Number(quantityToAddToCart);
+          item.quantity = Number(qtyValue);
         } else {
-          item.quantity += Number(quantityToAddToCart);
+          item.quantity += Number(qtyValue);
         }
 
         checkDuplicate(item);

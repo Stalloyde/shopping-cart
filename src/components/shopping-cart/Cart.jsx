@@ -4,13 +4,13 @@ import './Cart.css';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../Router';
 
-export const CartGrids = ({ item }) => {
+export const CartGrids = ({ cartItem }) => {
   const { cartArray, setCartArray, setQuantityToAddToCart } =
     useContext(CartContext);
 
   const handleChange = (e) => {
-    item.quantity = Number(e.target.value);
-    setQuantityToAddToCart(item.quantity);
+    cartItem.quantity = Number(e.target.value);
+    setQuantityToAddToCart(cartItem.quantity);
   };
 
   const handleDelete = (e) => {
@@ -23,31 +23,33 @@ export const CartGrids = ({ item }) => {
     <article className='cart-content'>
       <div className='cart-image-container'>
         <img
-          src={item.imageSrc}
-          height={item.height}
-          width={item.width}
-          alt={item.model}
+          src={cartItem.image}
+          height={cartItem.height}
+          width={cartItem.width}
+          alt={cartItem.title}
         ></img>
       </div>
       <section className='cart-details'>
         <div>
-          <h3>{item.model}</h3>
+          <h3>{cartItem.model}</h3>
         </div>
-        <div>{`Price: $${item.price}`}</div>
+        <div>{`Price: $${cartItem.price}`}</div>
         <div>
           Quantity:{' '}
           <input
             type='number'
-            defaultValue={item.quantity}
+            defaultValue={cartItem.quantity}
             min='1'
             onChange={handleChange}
           ></input>
         </div>
-        <div>Subtotal: {`$${item.price * item.quantity}`}</div>
+        <div>
+          Subtotal: {`$${(cartItem.price * cartItem.quantity).toFixed(2)}`}
+        </div>
       </section>
 
       <section className='cart-delete'>
-        <button id={item.id} onClick={handleDelete}>
+        <button id={cartItem.id} onClick={handleDelete}>
           Delete
         </button>
       </section>
@@ -56,18 +58,15 @@ export const CartGrids = ({ item }) => {
 };
 
 const Cart = () => {
-  const {
-    cartArray,
-    setCartArray,
-    quantityToAddToCart,
-    setQuantityToAddToCart,
-  } = useContext(CartContext);
+  const { cartArray } = useContext(CartContext);
 
   const sum = () => {
     const pricexQuantityArray = cartArray.map(
       (item) => item.price * item.quantity
     );
-    return pricexQuantityArray.reduce((total, current) => total + current);
+    return pricexQuantityArray
+      .reduce((total, current) => total + current)
+      .toFixed(2);
   };
 
   return (
@@ -86,15 +85,11 @@ const Cart = () => {
         ) : (
           <>
             <section className='cart-grids-container'>
-              {cartArray.map((item) => (
+              {cartArray.map((cartItem) => (
                 <CartGrids
-                  item={item}
-                  key={item.model}
-                  id={item.id}
-                  quantityToAddToCart={quantityToAddToCart}
-                  setQuantityToAddToCart={setQuantityToAddToCart}
-                  cartArray={cartArray}
-                  setCartArray={setCartArray}
+                  cartItem={cartItem}
+                  key={`${cartItem.id}-${cartItem.title}`}
+                  id={cartItem.id}
                 />
               ))}
             </section>

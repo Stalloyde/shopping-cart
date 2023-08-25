@@ -15,6 +15,7 @@ export const CartContext = createContext();
 const Router = () => {
   const [products, setProducts] = useState([{}]);
   const [cartArray, setCartArray] = useState([]);
+  const [quantityToAddToCart, setQuantityToAddToCart] = useState(1);
 
   const router = createBrowserRouter([
     {
@@ -60,6 +61,8 @@ const Router = () => {
         setCartArray,
         products,
         setProducts,
+        quantityToAddToCart,
+        setQuantityToAddToCart,
       }}
     >
       <RouterProvider router={router} />
