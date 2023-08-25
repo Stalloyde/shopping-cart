@@ -15,7 +15,7 @@ export const CartGrids = ({ cartItem }) => {
 
   const handleDelete = (e) => {
     const copy = [...cartArray];
-    const updatedCopy = copy.filter((item) => item.id !== e.target.id);
+    const updatedCopy = copy.filter((item) => item.id !== Number(e.target.id));
     setCartArray([...updatedCopy]);
   };
 
