@@ -6,12 +6,13 @@
 
 .home-main {
   display: grid;
-  background-color: black;
+  background-color: rgb(43, 38, 38);
   padding: 2rem 5rem;
   opacity: 0.9;
   color: white;
+  margin-top: 7rem;
   font-size: xx-large;
-  box-shadow: 0 0 20px rgb(0, 0, 0);
+  box-shadow: 0 0 20px rgb(43, 38, 38);
 }
 
 .home-btn-container {

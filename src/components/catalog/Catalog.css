@@ -3,12 +3,12 @@ ul {
   list-style: none;
   gap: 1rem;
   line-height: 2rem;
-  padding: 0 5rem;
+  padding: 2rem 5rem;
   width: 1500px;
 }
 
 a {
-  background-color: black;
+  background-color: rgb(43, 38, 38);
   color: white;
   width: max-content;
   padding: 1rem;
@@ -21,7 +21,7 @@ a {
 
 a:hover {
   background-color: rgb(255, 228, 196);
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 5px 5px 5px rgb(43, 38, 38);
   cursor: pointer;
   color: black;
   opacity: 1;
@@ -35,8 +35,9 @@ a:hover {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 450px));
   gap: 1rem;
+  justify-content: center;
 }
 
 .loading,

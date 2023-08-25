@@ -19,7 +19,7 @@
 
 .cart-content > div,
 .cart-content > section {
-  border: 1px solid black;
+  border: 1px solid rgb(43, 38, 38);
 }
 
 .cart-image-container {
@@ -30,7 +30,7 @@
 }
 
 .cart-details {
-  background-color: black;
+  background-color: rgb(43, 38, 38);
   color: white;
 }
 
@@ -63,7 +63,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  background-color: black;
+  background-color: rgb(43, 38, 38);
   color: white;
   width: 100%;
   padding: 1rem;

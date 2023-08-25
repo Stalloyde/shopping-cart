@@ -3,9 +3,9 @@
   display: grid;
   grid-template-rows: 2fr 2fr;
   height: 540px;
-  background-color: black;
+  background-color: rgb(43, 38, 38);
   color: white;
-  border: 1px solid black;
+  border: 1px solid rgb(43, 38, 38);
 }
 
 .input-container {
@@ -29,7 +29,7 @@
 
 #dialog-content {
   font-size: large;
-  color: black;
+  color: rgb(43, 38, 38);
 }
 
 .image-container {
@@ -58,7 +58,7 @@ button {
 
 button:hover {
   background-color: rgb(255, 228, 196);
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 5px 5px 5px rgb(43, 38, 38);
   cursor: pointer;
   transition: 0.1s;
   transform: scale(1.05);

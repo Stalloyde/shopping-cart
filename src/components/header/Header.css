@@ -13,13 +13,14 @@ nav {
 
 h1 {
   font-size: 4rem;
+  color: rgb(43, 38, 38);
 }
 
 .home-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: rgb(43, 38, 38);
   font-weight: bold;
   color: white;
   font-size: x-large;
@@ -31,9 +32,9 @@ h1 {
 
 .home-nav:hover {
   background-color: rgb(255, 228, 196);
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 5px 5px 5px rgb(43, 38, 38);
   cursor: pointer;
-  color: black;
+  color: rgb(43, 38, 38);
   opacity: 1;
   transition: 0.1s;
   transform: scale(1.05);
