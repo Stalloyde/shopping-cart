@@ -2,39 +2,37 @@ import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Card from './Card';
-import uniqid from 'uniqid';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 import { Dialog } from '@mui/material';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+import { CartContext } from '../../../Router';
 
 describe('Card', () => {
-  const guitar = {
-    brand: 'PRS',
-    model: 'PRS CE24 - Black',
-    price: 100,
-    quantity: 1,
-    id: uniqid(),
+  const cartArray = {
+    id: 1,
+    title: 'Product A',
+    price: '100',
+    quantity: 12,
+    category: 'electronics',
   };
 
   it('renders Card component correctly', () => {
     render(
-      <Card
-        guitar={guitar}
-        key={guitar.model}
-        guitarModel={guitar.model}
-        src={guitar.imageSrc}
-        width={guitar.width}
-        height={guitar.height}
-        guitarPrice={guitar.price}
-        id={guitar.id}
-      />
+      <CartContext.Provider value={cartArray}>
+        <Card
+          cartArray={cartArray}
+          productTitle={cartArray.title}
+          productPrice={cartArray.price}
+          id={cartArray.id}
+        />
+      </CartContext.Provider>
     );
 
     expect(screen.getByRole('img')).toBeInTheDocument();
-    expect(screen.getByText(guitar.model)).toBeInTheDocument();
-    expect(screen.getByText(`$${guitar.price}`)).toBeInTheDocument();
+    expect(screen.getByText(cartArray.title)).toBeInTheDocument();
+    expect(screen.getByText(`$${cartArray.price}`)).toBeInTheDocument();
     expect(screen.getByLabelText('Quantity:')).toBeInTheDocument();
     expect(
       screen.getByRole('button', { name: 'Add To Cart' })
@@ -78,8 +76,8 @@ describe('Card', () => {
     ]);
 
     const handleClickMock = vi.fn(() => {
-      guitar.quantity = Number(3);
-      setCartArray([guitar]);
+      cartArray.quantity = Number(3);
+      setCartArray([cartArray]);
     });
 
     render(<button onClick={handleClickMock}>Add To Cart</button>);
@@ -87,7 +85,7 @@ describe('Card', () => {
     const button = screen.getByRole('button', { name: 'Add To Cart' });
     await act(async () => user.click(button));
 
-    expect(setCartArray).toHaveBeenCalledWith([guitar]);
+    expect(setCartArray).toHaveBeenCalledWith([cartArray]);
   });
 
   it('Added to Cart notification renders on button click', async () => {
@@ -108,7 +106,7 @@ describe('Card', () => {
             <div>
               <DialogContent id='dialog-container'>
                 <DialogContentText id='dialog-content'>
-                  <strong>{guitar.model}</strong> has been added to cart
+                  <strong>{cartArray.title}</strong> has been added to cart
                 </DialogContentText>
               </DialogContent>
             </div>
@@ -126,11 +124,11 @@ describe('Card', () => {
     expect(screen.getByText('has been added to cart')).toBeInTheDocument();
   });
 
-  it('cart Array merges quantity for duplicate products instead of adding as separate object', async () => {
+  it('cart Array merges quantity for duplicate cartArray instead of adding as separate object', async () => {
     const setCartArray = vi.fn();
     const handleClickMock = vi.fn(() => {
       const inputValueMock = 4;
-      guitar.quantity += inputValueMock;
+      cartArray.quantity += inputValueMock;
     });
     const user = userEvent.setup();
 
@@ -140,7 +138,7 @@ describe('Card', () => {
     ]);
 
     render(
-      <button data-testid='test' id={guitar.id} onClick={handleClickMock}>
+      <button data-testid='test' id={cartArray.id} onClick={handleClickMock}>
         Add To Cart
       </button>
     );
@@ -148,12 +146,12 @@ describe('Card', () => {
     const button = screen.getByTestId('test');
     await act(async () => user.click(button));
 
-    expect(guitar).toEqual({
-      brand: 'PRS',
-      model: 'PRS CE24 - Black',
-      price: 100,
+    expect(cartArray).toEqual({
+      id: 1,
+      title: 'Product A',
+      price: '100',
       quantity: 7,
-      id: guitar.id,
+      category: 'electronics',
     });
   });
 });

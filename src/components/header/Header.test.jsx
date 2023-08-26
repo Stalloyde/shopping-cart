@@ -29,7 +29,7 @@ describe('Header component', () => {
     const history = createMemoryHistory({ initialEntries: ['/'] });
     render(
       <Router location={history.location} navigator={history}>
-        <Link to='/catalog'>
+        <Link to='/catalog/all products'>
           <div>Catalog</div>
         </Link>
       </Router>
@@ -37,7 +37,7 @@ describe('Header component', () => {
     expect(history.location.pathname).toBe('/');
     const button = screen.getByText('Catalog');
     await act(async () => user.click(button));
-    expect(history.location.pathname).toBe('/catalog');
+    expect(history.location.pathname).toBe('/catalog/all products');
   });
 
   it('change current path to Cart when Cart is clicked', async () => {
@@ -59,18 +59,18 @@ describe('Header component', () => {
   it('qtyInCart shows total quantity of cart items', () => {
     const cartMock = [
       {
-        brand: 'PRS',
-        model: 'PRS CE24 - Black',
-        price: 100,
-        quantity: 10,
-        id: 'abc123',
+        id: 1,
+        title: 'Product A',
+        price: '100',
+        quantity: 1,
+        category: 'electronics',
       },
       {
-        brand: 'PRS',
-        model: 'PRS CE242 - Red',
-        price: 100,
-        quantity: 2,
-        id: 'abc123',
+        id: 2,
+        title: 'Product B',
+        price: '200',
+        quantity: 11,
+        category: 'jewelery',
       },
     ];
 

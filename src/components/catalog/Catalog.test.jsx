@@ -1,65 +1,58 @@
 import React from 'react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Card from './Card/Card';
-import FilterList from './FilterList/FilterList';
-import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
+import { CartContext } from '../../Router';
 
 describe('Catalog Card', () => {
-  const guitars = [
+  const products = [
     {
-      brand: 'PRS',
-      model: 'PRS CE24 - Black',
-      price: 100,
-      height: '100%',
-      width: '100%',
+      id: 1,
+      title: 'Product A',
+      price: '100',
+      category: 'electronics',
     },
     {
-      brand: 'Gibson',
-      model: 'Gibson 70s Explorer - Classic White',
-      price: 200,
-      height: '85%',
-      width: '45%',
+      id: 2,
+      title: 'Product B',
+      price: '200',
+      category: 'jewelery',
     },
     {
-      brand: 'Ibanez',
-      model: 'Ibanez AR520HFM-VLS - Violin Burst',
-      price: 300,
-      height: '100%',
-      width: '100%',
+      id: 3,
+      title: 'Product C',
+      price: '300',
+      category: 'jewelery',
     },
     {
-      brand: 'Ibanez',
-      model: 'Ibanez AR520HFM-VLS - Violin Burst 2',
-      price: 300,
-      height: '100%',
-      width: '100%',
+      id: 4,
+      title: 'Product D',
+      price: '300',
+      category: 'electronics',
     },
     {
-      brand: 'Schecter',
-      model: 'Schecter Avenger Exotic - Spalted Maple',
-      price: 100,
-      height: '85%',
-      width: '30%',
+      id: 5,
+      title: 'Product E',
+      price: '400',
+      category: 'jewelery',
     },
   ];
 
-  it('Initial render renders all items in guitars array', () => {
+  it('Initial render renders all items in products array', () => {
     render(
       <>
-        {guitars.map((item) => (
-          <Card
-            guitars={guitars}
-            key={item.model}
-            guitarModel={item.model}
-            src={item.imageSrc}
-            width={item.width}
-            height={item.height}
-            guitarPrice={item.price}
-            id={item.id}
-          />
-        ))}
+        <CartContext.Provider value={products}>
+          {products.map((item) => (
+            <Card
+              products={products}
+              key={`${item.id}-${item.title}`}
+              productTitle={item.title}
+              src={item.image}
+              productPrice={item.price}
+              id={item.id}
+            />
+          ))}
+        </CartContext.Provider>
       </>
     );
 
@@ -67,58 +60,5 @@ describe('Catalog Card', () => {
     buttons.forEach((item) => {
       expect(item).toBeInTheDocument();
     });
-  });
-
-  it('on filter - array contains only selected brands', async () => {
-    const setState = vi.fn();
-
-    vi.spyOn(React, 'useState').mockImplementationOnce(
-      (initState) => initState,
-      setState
-    );
-
-    const filterBrandMock = (e) => {
-      const filteredGuitars = guitars.filter((guitar) => {
-        if (e.target.textContent === guitar.brand) {
-          return guitar;
-        }
-      });
-      setState(filteredGuitars);
-    };
-    const user = userEvent.setup();
-
-    render(<FilterList guitars={guitars} filterBrand={filterBrandMock} />);
-
-    const schecter = screen.getByText('Schecter');
-    await act(async () => user.click(schecter));
-
-    expect(setState).toHaveBeenCalledWith([
-      {
-        brand: 'Schecter',
-        height: '85%',
-        model: 'Schecter Avenger Exotic - Spalted Maple',
-        price: 100,
-        width: '30%',
-      },
-    ]);
-
-    const ibanez = screen.getByText('Ibanez');
-    await act(async () => user.click(ibanez));
-    expect(setState).toHaveBeenCalledWith([
-      {
-        brand: 'Ibanez',
-        model: 'Ibanez AR520HFM-VLS - Violin Burst',
-        price: 300,
-        height: '100%',
-        width: '100%',
-      },
-      {
-        brand: 'Ibanez',
-        model: 'Ibanez AR520HFM-VLS - Violin Burst 2',
-        price: 300,
-        height: '100%',
-        width: '100%',
-      },
-    ]);
   });
 });

@@ -13,7 +13,7 @@ describe('Home component', () => {
     const history = createMemoryHistory({ initialEntries: ['/'] });
     render(
       <Router location={history.location} navigator={history}>
-        <Link to='/catalog'>
+        <Link to='/catalog/all products'>
           <div>View Our Collection</div>
         </Link>
       </Router>
@@ -21,6 +21,6 @@ describe('Home component', () => {
     expect(history.location.pathname).toBe('/');
     const button = screen.getByText('View Our Collection');
     await act(async () => user.click(button));
-    expect(history.location.pathname).toBe('/catalog');
+    expect(history.location.pathname).toBe('/catalog/all products');
   });
 });

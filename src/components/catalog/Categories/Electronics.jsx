@@ -9,7 +9,7 @@ const Electronics = () => {
   const filteredProducts = products.filter(
     (product) => product.category === 'electronics'
   );
-  console.log(filteredProducts);
+
   return (
     <>
       {filteredProducts.map((item) => (

@@ -3,30 +3,40 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import uniqid from 'uniqid';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 import { Link } from 'react-router-dom';
 import { CartGrids } from './Cart';
+import { CartContext } from '../../Router';
 
 describe('Card', () => {
-  const cartMock = {
-    brand: 'PRS',
-    model: 'PRS CE24 - Black',
-    price: 100,
-    quantity: 10,
-    id: uniqid(),
+  const cartArray = {
+    id: 1,
+    title: 'Product A',
+    price: '100',
+    quantity: 12,
+    category: 'electronics',
   };
 
   it('renders CartGrids component correctly', () => {
-    render(<CartGrids item={cartMock} key={cartMock.model} id={cartMock.id} />);
+    render(
+      <CartContext.Provider value={cartArray}>
+        <CartGrids
+          cartItem={cartArray}
+          key={`${cartArray.id}-${cartArray.title}`}
+          id={cartArray.id}
+        />
+      </CartContext.Provider>
+    );
 
     expect(screen.getByRole('img')).toBeInTheDocument();
-    expect(screen.getByText(cartMock.model)).toBeInTheDocument();
-    expect(screen.getByText(`Price: $${cartMock.price}`)).toBeInTheDocument();
+    expect(screen.getByText(cartArray.title)).toBeInTheDocument();
+    expect(screen.getByText(`Price: $${cartArray.price}`)).toBeInTheDocument();
     expect(screen.getByText('Quantity:')).toBeInTheDocument();
     expect(
-      screen.getByText(`Subtotal: $${cartMock.price * cartMock.quantity}`)
+      screen.getByText(
+        `Subtotal: $${(cartArray.price * cartArray.quantity).toFixed(2)}`
+      )
     ).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Delete' })).toBeInTheDocument();
   });
@@ -42,13 +52,15 @@ describe('Card', () => {
     ]);
 
     handleDeleteMock.mockImplementation((e) => {
-      const copy = [cartMock];
-      const updatedCopy = copy.filter((item) => item.id !== e.target.id);
+      const copy = [cartArray];
+      const updatedCopy = copy.filter(
+        (item) => item.id !== Number(e.target.id)
+      );
       setCartArray(updatedCopy);
     });
 
     render(
-      <button id={cartMock.id} onClick={handleDeleteMock}>
+      <button id={cartArray.id} onClick={handleDeleteMock}>
         Delete
       </button>
     );
@@ -70,8 +82,8 @@ describe('Card', () => {
     ]);
 
     handleChangeMock.mockImplementation((e) => {
-      cartMock.quantity = Number(e.target.value);
-      setQuantityToAddToCart(cartMock.quantity);
+      cartArray.quantity = Number(e.target.value);
+      setQuantityToAddToCart(cartArray.quantity);
     });
 
     render(<input type='number' onChange={handleChangeMock}></input>);
@@ -80,12 +92,12 @@ describe('Card', () => {
 
     await act(async () => user.type(input, '12'));
 
-    expect(cartMock).toEqual({
-      brand: 'PRS',
-      model: 'PRS CE24 - Black',
-      price: 100,
+    expect(cartArray).toEqual({
+      id: 1,
+      title: 'Product A',
+      price: '100',
       quantity: 12,
-      id: cartMock.id,
+      category: 'electronics',
     });
 
     expect(setQuantityToAddToCart).toHaveBeenCalledWith(12);
@@ -110,13 +122,13 @@ describe('Card', () => {
   it('conditional rendering renders correctly if cartArray is not empty', () => {
     render(
       <div className='cart-container'>
-        {cartMock.length === 0 ? (
+        {cartArray.length === 0 ? (
           <>Your shopping cart is currently empty.</>
         ) : (
           <>
             <div className='cart-grids-container'>Cart items here</div>
             <div className='checkout-container'>
-              <div className='total'>{`Total: $${cartMock.price}`}</div>
+              <div className='total'>{`Total: $${cartArray.price}`}</div>
               <button>Check Out Cart</button>
             </div>
           </>
@@ -125,7 +137,7 @@ describe('Card', () => {
     );
 
     expect(screen.getByText('Cart items here')).toBeInTheDocument();
-    expect(screen.getByText(`Total: $${cartMock.price}`)).toBeInTheDocument();
+    expect(screen.getByText(`Total: $${cartArray.price}`)).toBeInTheDocument();
     expect(
       screen.getByRole('button', { name: 'Check Out Cart' })
     ).toBeInTheDocument();
@@ -144,7 +156,7 @@ describe('Card', () => {
           <>
             <div className='cart-grids-container'>Cart items here</div>
             <div className='checkout-container'>
-              <div className='total'>{`Total: $${cartMock.price}`}</div>
+              <div className='total'>{`Total: $${cartArray.price}`}</div>
               <button>Check Out Cart</button>
             </div>
           </>
