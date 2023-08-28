@@ -4,9 +4,6 @@ import vitePluginRequire from 'vite-plugin-require';
 
 export default defineConfig(() => {
   return {
-    build: {
-      outDir: 'build',
-    },
     plugins: [
       react(),
       vitePluginRequire({
