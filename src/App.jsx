@@ -7,12 +7,12 @@ import Jewelery from './components/catalog/Categories/Jewelery';
 import MensClothing from './components/catalog/Categories/MensClothing';
 import WomensClothing from './components/catalog/Categories/WomensClothing';
 import Cart from './components/shopping-cart/Cart';
-import './Router.css';
+import './App.css';
 import AllProducts from './components/catalog/Categories/AllProducts';
 
 export const CartContext = createContext();
 
-const Router = () => {
+const App = () => {
   const [products, setProducts] = useState([{}]);
   const [cartArray, setCartArray] = useState([]);
   const [quantityToAddToCart, setQuantityToAddToCart] = useState(1);
@@ -70,4 +70,4 @@ const Router = () => {
   );
 };
 
-export default Router;
+export default App;

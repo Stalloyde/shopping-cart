@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Header from '../header/Header';
 import './Home.css';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../Router';
+import { CartContext } from '../../App';
 
 const Home = () => {
   const { cartArray } = useContext(CartContext);

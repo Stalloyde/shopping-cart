@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import './Card.css';
 import { Dialog } from '@mui/material';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import { CartContext } from '../../../Router';
+import { CartContext } from '../../../App';
 
 const Card = ({ products, productTitle, src, productPrice, id }) => {
   const { cartArray, setCartArray } = useContext(CartContext);

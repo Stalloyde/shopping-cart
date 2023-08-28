@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../Router';
+import { CartContext } from '../../App';
 
 const Header = () => {
   const { cartArray } = useContext(CartContext);

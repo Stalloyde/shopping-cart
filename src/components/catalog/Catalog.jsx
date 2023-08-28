@@ -3,7 +3,7 @@ import Header from '../header/Header';
 import FilterList from './FilterList/FilterList';
 import './Catalog.css';
 import { Outlet } from 'react-router-dom';
-import { CartContext } from '../../Router';
+import { CartContext } from '../../App';
 import loading from '../../components/loading.gif';
 
 const Catalog = () => {

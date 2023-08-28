@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Card from '../Card/Card';
 import '../Catalog.css';
-import { CartContext } from '../../../Router';
+import { CartContext } from '../../../App';
 
 const Electronics = () => {
   const { products } = useContext(CartContext);

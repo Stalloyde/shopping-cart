@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Header from '../header/Header';
 import './Cart.css';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../Router';
+import { CartContext } from '../../App';
 
 export const CartGrids = ({ cartItem }) => {
   const { cartArray, setCartArray, setQuantityToAddToCart } =

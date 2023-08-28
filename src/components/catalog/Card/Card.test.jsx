@@ -7,7 +7,7 @@ import { act } from 'react-dom/test-utils';
 import { Dialog } from '@mui/material';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import { CartContext } from '../../../Router';
+import { CartContext } from '../../../App';
 
 describe('Card', () => {
   const cartArray = {

@@ -7,7 +7,7 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 import { Link } from 'react-router-dom';
 import { CartGrids } from './Cart';
-import { CartContext } from '../../Router';
+import { CartContext } from '../../App';
 
 describe('Card', () => {
   const cartArray = {
