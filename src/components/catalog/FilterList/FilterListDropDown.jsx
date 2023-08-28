@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const FilterList = () => {
+const FilterListDropDown = () => {
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getAllCategories() {
@@ -35,21 +36,24 @@ const FilterList = () => {
   if (isLoading) return <ul>Loading...</ul>;
   if (errorMessage) return <ul>{errorMessage}</ul>;
 
+  function handleChange(value) {
+    navigate(`${value}`);
+    value = '';
+  }
+
   return (
-    <ul className='filter-list'>
+    <ul className='filter-list-dropdown'>
       Filter by:
-      <li>
-        <Link to='all products'>All Categories</Link>
-      </li>
-      {categories.map((category) => (
-        <li key={category}>
-          <Link to={`${category}`}>
+      <select onChange={(e) => handleChange(e.target.value)}>
+        <option value='all products'>All Categories</option>
+        {categories.map((category) => (
+          <option key={category} value={category}>
             {category.charAt(0).toUpperCase() + category.slice(1)}
-          </Link>
-        </li>
-      ))}
+          </option>
+        ))}
+      </select>
     </ul>
   );
 };
 
-export default FilterList;
+export default FilterListDropDown;

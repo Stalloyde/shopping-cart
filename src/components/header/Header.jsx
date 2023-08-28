@@ -17,7 +17,9 @@ const Header = () => {
 
   return (
     <header>
-      <h1>Tech & Threads</h1>
+      <div className='store-name'>
+        <h1>Tech & Threads</h1>
+      </div>
       <nav>
         <Link className='home-nav' to='/'>
           <div>Home</div>

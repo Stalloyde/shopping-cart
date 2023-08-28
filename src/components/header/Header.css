@@ -1,13 +1,17 @@
 header {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
   align-items: center;
   padding: 1rem 5rem;
+  flex-wrap: wrap;
+}
+
+.store-name {
+  flex-grow: 1;
 }
 
 nav {
-  display: grid;
-  grid-template-columns: 2fr 0.5fr 0.5fr 0.5fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -24,9 +28,9 @@ h1 {
   font-weight: bold;
   color: white;
   font-size: x-large;
-  height: 5rem;
+  height: 4.5rem;
   opacity: 0.9;
-  width: 15rem;
+  width: 12rem;
   text-decoration: none;
 }
 
@@ -43,6 +47,40 @@ h1 {
 .cart-array {
   margin-left: 0.5rem;
   padding: 0.2rem 0.5rem;
-  background-color: darkgreen;
+  background-color: rgb(99, 151, 99);
   border-radius: 30%;
+}
+
+@media (max-width: 800px) {
+  header {
+    padding: 1rem 3rem;
+    justify-content: center;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  nav {
+    display: flex;
+    padding: 1rem 1rem;
+    justify-content: center;
+  }
+
+  .home-nav {
+    font-size: large;
+    height: 3rem;
+    width: 8rem;
+  }
+}
+
+@media (max-width: 1350px) {
+  header {
+    justify-content: center;
+  }
+
+  h1 {
+    text-align: center;
+  }
 }

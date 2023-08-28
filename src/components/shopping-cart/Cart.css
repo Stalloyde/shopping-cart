@@ -79,3 +79,7 @@
 .checkout-container > button {
   width: 50%;
 }
+
+.home-btn-container > a > div {
+  line-height: 1.5rem;
+}

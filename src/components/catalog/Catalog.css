@@ -1,10 +1,21 @@
-ul {
+.filter-list {
   display: flex;
   list-style: none;
   gap: 1rem;
   line-height: 2rem;
   padding: 2rem 5rem;
-  width: 1500px;
+  width: 100%;
+}
+
+.filter-list-dropdown {
+  display: none;
+  gap: 1rem;
+  line-height: 2rem;
+  justify-content: center;
+}
+
+.filter-list-dropdown > select:hover {
+  cursor: pointer;
 }
 
 a {
@@ -46,4 +57,14 @@ a:hover {
   top: 20%;
   left: 45%;
   width: 10%;
+}
+
+@media (max-width: 950px) {
+  .filter-list {
+    display: none;
+  }
+
+  .filter-list-dropdown {
+    display: flex;
+  }
 }

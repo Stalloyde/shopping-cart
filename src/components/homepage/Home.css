@@ -1,7 +1,5 @@
 .home-container {
   display: grid;
-  grid-template-rows: 0.2fr 1fr 1fr;
-  height: 100vh;
 }
 
 .home-main {
@@ -16,7 +14,30 @@
 }
 
 .home-btn-container {
+  margin-top: 5rem;
   display: grid;
   justify-content: center;
-  align-items: center;
+  padding: 2rem 5rem;
+}
+
+.home-btn-container > a > div {
+  line-height: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .home-main {
+    display: grid;
+    align-items: center;
+    background-color: rgb(43, 38, 38);
+    padding: 1rem 1rem;
+    margin-top: 0rem;
+    opacity: 0.9;
+    color: white;
+    font-size: large;
+    box-shadow: 0 0 20px rgb(43, 38, 38);
+  }
+
+  .home-btn-container {
+    margin-top: 0;
+  }
 }

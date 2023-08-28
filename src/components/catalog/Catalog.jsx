@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Header from '../header/Header';
 import FilterList from './FilterList/FilterList';
+import FilterListDropDown from './FilterList/FilterListDropDown';
 import './Catalog.css';
 import { Outlet } from 'react-router-dom';
 import { CartContext } from '../../App';
@@ -10,6 +11,19 @@ const Catalog = () => {
   const { setProducts } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [resized, setResized] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      window.innerWidth <= 950 ? setResized(true) : setResized(false);
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
 
   useEffect(() => {
     async function getAllData() {
@@ -37,8 +51,10 @@ const Catalog = () => {
 
   return (
     <div className='catalog-container'>
-      <Header />
-      <FilterList />
+      <div>
+        <Header />
+      </div>
+      {resized ? <FilterListDropDown /> : <FilterList />}
       <main className='catalog-content'>
         <div className='products'>
           {isLoading ? (
