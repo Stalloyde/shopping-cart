@@ -35,7 +35,7 @@ a:hover {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 450px));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
   gap: 1rem;
   justify-content: center;
 }
