@@ -54,7 +54,7 @@ a:hover {
 .loading,
 .error {
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 45%;
   width: 10%;
 }
