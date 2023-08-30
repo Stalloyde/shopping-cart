@@ -5,7 +5,7 @@ header {
   flex-wrap: wrap;
 }
 
-.store-name {
+.storeName {
   flex-grow: 1;
 }
 
@@ -20,7 +20,7 @@ h1 {
   color: rgb(43, 38, 38);
 }
 
-.home-nav {
+.homeNav {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,7 @@ h1 {
   text-decoration: none;
 }
 
-.home-nav:hover {
+.homeNav:hover {
   background-color: rgb(255, 228, 196);
   box-shadow: 5px 5px 5px rgb(43, 38, 38);
   cursor: pointer;
@@ -44,7 +44,7 @@ h1 {
   transform: scale(1.05);
 }
 
-.cart-array {
+.cartArray {
   margin-left: 0.5rem;
   padding: 0.2rem 0.5rem;
   background-color: rgb(99, 151, 99);
@@ -68,7 +68,7 @@ h1 {
     justify-content: center;
   }
 
-  .home-nav {
+  .homeNav {
     font-size: large;
     height: 3rem;
     width: 8rem;

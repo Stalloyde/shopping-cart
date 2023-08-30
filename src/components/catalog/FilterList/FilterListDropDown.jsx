@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from '../Catalog.module.css';
 
 const FilterListDropDown = () => {
   const [categories, setCategories] = useState([]);
@@ -42,7 +43,7 @@ const FilterListDropDown = () => {
   }
 
   return (
-    <ul className='filter-list-dropdown'>
+    <ul className={styles.filterListDropdown}>
       Filter by:
       <select onChange={(e) => handleChange(e.target.value)}>
         <option value='all products'>All Categories</option>

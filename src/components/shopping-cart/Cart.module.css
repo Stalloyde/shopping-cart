@@ -1,14 +1,14 @@
-.cart-container {
+.cartContainer {
   width: 100%;
   padding-bottom: 5rem;
   text-align: center;
 }
 
-.cart-container > a {
+.cartContainer > a {
   margin: 0 auto;
 }
 
-.cart-content {
+.cartContent {
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -16,20 +16,20 @@
   max-width: 1000px;
 }
 
-.cart-content > div,
-.cart-content > section {
+.cartContent > div,
+.cartContent > section {
   border: 1px solid rgb(43, 38, 38);
 }
 
-.cart-image-container {
+.cartImageContainer {
   background-color: white;
 }
 
-.cart-image-container > img {
+.cartImageContainer > img {
   width: 200px;
 }
 
-.cart-details {
+.cartDetails {
   display: grid;
   background-color: rgb(43, 38, 38);
   flex-grow: 1;
@@ -37,29 +37,30 @@
   color: white;
   text-align: left;
   align-content: stretch;
+  padding: 1rem;
 }
 
-.cart-details > div {
+.cartDetails > div {
   font-size: larger;
   padding: 0.3rem;
 }
 
-.cart-delete {
+.cartDelete {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 1rem;
 }
 
-.cart-delete > button {
+.cartDelete > button {
   width: max-content;
 }
 
-.cart-grids-container {
+.cartGridsContainer {
   padding: 1rem;
 }
 
-.checkout-container {
+.checkoutContainer {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -80,24 +81,37 @@
   text-align: center;
 }
 
-.checkout-container > button {
+.checkoutContainer > button {
   width: 50%;
 }
 
-.home-btn-container > a > div {
+.homeBtnContainer {
+  display: grid;
+  justify-content: center;
+  margin-top: 5rem;
+  padding: 2rem 5rem;
+}
+
+.homeNav {
+  margin: auto;
+  composes: homeNav from '../header/Header.module.css';
   line-height: 1.5rem;
 }
 
 @media (max-width: 800px) {
-  .cart-details > div {
+  .cartDetails {
+    padding: 0.5rem;
+  }
+
+  .cartDetails > div {
     font-size: small;
   }
 
-  .cart-image-container > img {
+  .cartImageContainer > img {
     width: 160px;
   }
 
-  .cart-delete > button {
+  .cartDelete > button {
     font-size: smaller;
     height: max-content;
     width: min-content;
@@ -107,7 +121,7 @@
     font-size: large;
   }
 
-  .checkout-container > button {
+  .checkoutContainer > button {
     width: 100%;
   }
 }

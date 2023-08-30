@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import Header from '../header/Header';
 import FilterList from './FilterList/FilterList';
 import FilterListDropDown from './FilterList/FilterListDropDown';
-import './Catalog.css';
+import styles from './Catalog.module.css';
 import { Outlet } from 'react-router-dom';
 import { CartContext } from '../../App';
 import loading from '../../components/loading.gif';
@@ -44,7 +44,7 @@ const Catalog = () => {
   }, []);
 
   return (
-    <div className='catalog-container'>
+    <div className={styles.catalogContainer}>
       <div>
         <Header />
       </div>
@@ -53,12 +53,12 @@ const Catalog = () => {
       ) : (
         <FilterList />
       )}
-      <main className='catalog-content'>
-        <div className='products'>
+      <main className={styles.catalogContent}>
+        <div className={styles.products}>
           {isLoading ? (
-            <img className='loading' src={loading}></img>
+            <img className={styles.loading} src={loading}></img>
           ) : errorMessage ? (
-            <p className='error'>{errorMessage}</p>
+            <p className={styles.error}>{errorMessage}</p>
           ) : (
             <Outlet />
           )}

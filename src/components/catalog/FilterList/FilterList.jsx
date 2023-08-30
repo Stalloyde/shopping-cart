@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import styles from '../Catalog.module.css';
 
 const FilterList = () => {
   const [categories, setCategories] = useState([]);
@@ -36,7 +37,7 @@ const FilterList = () => {
   if (errorMessage) return <ul>{errorMessage}</ul>;
 
   return (
-    <ul className='filter-list'>
+    <ul className={styles.filterList}>
       Filter by:
       <li>
         <Link to='all products'>All Categories</Link>

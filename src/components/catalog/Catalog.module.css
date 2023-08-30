@@ -1,4 +1,4 @@
-.filter-list {
+.filterList {
   display: flex;
   list-style: none;
   gap: 1rem;
@@ -7,14 +7,14 @@
   width: 100%;
 }
 
-.filter-list-dropdown {
+.filterListDropdown {
   display: none;
   gap: 1rem;
   line-height: 2rem;
   justify-content: center;
 }
 
-.filter-list-dropdown > select:hover {
+.filterListDropdown > select:hover {
   cursor: pointer;
 }
 
@@ -44,7 +44,7 @@ a:hover {
   transform: scale(1.05);
 }
 
-.catalog-content {
+.catalogContent {
   padding: 1rem 5rem;
 }
 
@@ -64,11 +64,11 @@ a:hover {
 }
 
 @media (max-width: 950px) {
-  .filter-list {
+  .filterList {
     display: none;
   }
 
-  .filter-list-dropdown {
+  .filterListDropdown {
     display: flex;
   }
 }

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import './Header.css';
+import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../App';
 
-const Header = () => {
+const Header = ({ homeNav = 'homeNav' }) => {
   const { cartArray } = useContext(CartContext);
 
   const qtyInCart = () => {
@@ -17,19 +17,19 @@ const Header = () => {
 
   return (
     <header>
-      <div className='store-name'>
+      <div className={styles.storeName}>
         <h1>Tech & Threads</h1>
       </div>
       <nav>
-        <Link className='home-nav' to='/'>
+        <Link className={styles[homeNav]} to='/'>
           <div>Home</div>
         </Link>
-        <Link className='home-nav' to='/catalog/all products'>
+        <Link className={styles[homeNav]} to='/catalog/all products'>
           <div>Catalog</div>
         </Link>
-        <Link className='home-nav' to='/cart'>
+        <Link className={styles[homeNav]} to='/cart'>
           <div>Cart</div>
-          <div className='cart-array'>{qtyInCart()}</div>
+          <div className={styles.cartArray}>{qtyInCart()}</div>
         </Link>
       </nav>
     </header>

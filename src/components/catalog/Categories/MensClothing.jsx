@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Card from '../Card/Card';
-import '../Catalog.css';
+import styles from '../Catalog.module.css';
 import { CartContext } from '../../../App';
 
 const Electronics = () => {

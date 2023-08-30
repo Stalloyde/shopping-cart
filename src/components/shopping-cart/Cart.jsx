@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Header from '../header/Header';
-import './Cart.css';
+import styles from './Cart.module.css';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../App';
 
@@ -20,11 +20,11 @@ export const CartGrids = ({ cartItem }) => {
   };
 
   return (
-    <article className='cart-content'>
-      <div className='cart-image-container'>
+    <article className={styles.cartContent}>
+      <div className={styles.cartImageContainer}>
         <img src={cartItem.image} alt={cartItem.title}></img>
       </div>
-      <section className='cart-details'>
+      <section className={styles.cartDetails}>
         <div>
           <h3>{cartItem.title}</h3>
         </div>
@@ -41,7 +41,7 @@ export const CartGrids = ({ cartItem }) => {
         <div>
           Subtotal: {`$${(cartItem.price * cartItem.quantity).toFixed(2)}`}
         </div>
-        <div className='cart-delete'>
+        <div className={styles.cartDelete}>
           <button id={cartItem.id} onClick={handleDelete}>
             Remove Item
           </button>
@@ -66,21 +66,21 @@ const Cart = () => {
   return (
     <>
       <Header cartArray={cartArray} />
-      <main className='cart-container'>
+      <main className={styles.cartContainer}>
         {cartArray.length === 0 ? (
           <>
-            Your shopping cart is currently empty.
-            <br />
-            <br />
-            <aside className='home-btn-container'>
-              <Link className='home-nav' to='/catalog/all products'>
+            <aside className={styles.homeBtnContainer}>
+              Your shopping cart is currently empty.
+              <br />
+              <br />
+              <Link className={styles.homeNav} to='/catalog/all products'>
                 <div>View Our Collection</div>
               </Link>
             </aside>
           </>
         ) : (
           <>
-            <section className='cart-grids-container'>
+            <section className={styles.cartGridsContainer}>
               {cartArray.map((cartItem) => (
                 <CartGrids
                   cartItem={cartItem}
@@ -89,8 +89,8 @@ const Cart = () => {
                 />
               ))}
             </section>
-            <footer className='checkout-container'>
-              <div className='total'>{`Total: $${sum()}`}</div>
+            <footer className={styles.checkoutContainer}>
+              <div className={styles.total}>{`Total: $${sum()}`}</div>
               <button>Check Out Cart</button>
             </footer>
           </>

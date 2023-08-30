@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import Header from '../header/Header';
-import './Home.css';
+import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../App';
 
 const Home = () => {
   const { cartArray } = useContext(CartContext);
   return (
-    <div className='home-container' data-testid='homepage'>
+    <div className={styles.homeContainer} data-testid='homepage'>
       <Header cartArray={cartArray} />
-      <main className='home-main'>
+      <main className={styles.homeMain}>
         Welcome to our online store, your one-stop destination for the latest
         trends and must-have items across four exciting categories. Explore our
         wide range of products in Electronics, Jewelry, Men's Clothing, and
@@ -27,8 +27,8 @@ const Home = () => {
         pieces that will transform your style and enhance your lifestyle. Happy
         shopping!
       </main>
-      <aside className='home-btn-container'>
-        <Link className='home-nav' to='/catalog/all products'>
+      <aside className={styles.homeBtnContainer}>
+        <Link className={styles.homeNav} to='/catalog/all products'>
           <div>View Our Collection</div>
         </Link>
       </aside>
