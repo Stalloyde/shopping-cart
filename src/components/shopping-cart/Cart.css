@@ -30,11 +30,13 @@
 }
 
 .cart-details {
+  display: grid;
   background-color: rgb(43, 38, 38);
   flex-grow: 1;
   min-width: 200px;
   color: white;
   text-align: left;
+  align-content: stretch;
 }
 
 .cart-details > div {
