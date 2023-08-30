@@ -22,12 +22,7 @@ export const CartGrids = ({ cartItem }) => {
   return (
     <article className='cart-content'>
       <div className='cart-image-container'>
-        <img
-          src={cartItem.image}
-          height={cartItem.height}
-          width={cartItem.width}
-          alt={cartItem.title}
-        ></img>
+        <img src={cartItem.image} alt={cartItem.title}></img>
       </div>
       <section className='cart-details'>
         <div>
@@ -46,12 +41,11 @@ export const CartGrids = ({ cartItem }) => {
         <div>
           Subtotal: {`$${(cartItem.price * cartItem.quantity).toFixed(2)}`}
         </div>
-      </section>
-
-      <section className='cart-delete'>
-        <button id={cartItem.id} onClick={handleDelete}>
-          Delete
-        </button>
+        <div className='cart-delete'>
+          <button id={cartItem.id} onClick={handleDelete}>
+            Remove Item
+          </button>
+        </div>
       </section>
     </article>
   );
