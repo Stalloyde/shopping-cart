@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+ul {
+  padding: 2rem 5rem;
+}
+
 a {
   background-color: rgb(43, 38, 38);
   color: white;
