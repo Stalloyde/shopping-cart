@@ -44,6 +44,10 @@ h1 {
   transform: scale(1.05);
 }
 
+.navMobile {
+  display: none;
+}
+
 .cartArray {
   margin-left: 0.5rem;
   padding: 0.2rem 0.5rem;
@@ -82,5 +86,16 @@ h1 {
 
   h1 {
     text-align: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .homeNav {
+    display: none;
+  }
+
+  .navMobile {
+    display: flex;
+    padding: 0;
   }
 }
