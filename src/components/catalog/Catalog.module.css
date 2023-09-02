@@ -41,6 +41,15 @@ ul {
   width: 10%;
 }
 
+.linkToTop {
+  position: fixed;
+  height: 30px;
+  width: fit-content;
+  line-height: 0;
+  bottom: 0;
+  right: 0;
+}
+
 @media (max-width: 950px) {
   .filterList {
     display: none;

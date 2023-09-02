@@ -63,6 +63,9 @@ const Catalog = () => {
             <Outlet />
           )}
         </div>
+        <a className={styles.linkToTop} href='#top'>
+          ^ Back to Top
+        </a>
       </main>
     </div>
   );
