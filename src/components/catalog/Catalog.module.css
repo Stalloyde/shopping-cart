@@ -22,28 +22,6 @@ ul {
   padding: 2rem 5rem;
 }
 
-a {
-  background-color: rgb(43, 38, 38);
-  color: white;
-  width: max-content;
-  padding: 1rem;
-  height: 2rem;
-  text-align: center;
-  line-height: 2rem;
-  border-radius: 10rem;
-  text-decoration: none;
-}
-
-a:hover {
-  background-color: rgb(255, 228, 196);
-  box-shadow: 5px 5px 5px rgb(43, 38, 38);
-  cursor: pointer;
-  color: black;
-  opacity: 1;
-  transition: 0.1s;
-  transform: scale(1.05);
-}
-
 .catalogContent {
   padding: 1rem 5rem;
 }
