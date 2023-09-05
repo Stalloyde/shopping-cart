@@ -10,11 +10,44 @@ import Cart from './components/shopping-cart/Cart';
 import './App.css';
 import AllProducts from './components/catalog/Categories/AllProducts';
 
-export const CartContext = createContext();
+export interface CartContextType {
+  cartArray: CartArrayType[] | null;
+  setCartArray: React.Dispatch<React.SetStateAction<CartArrayType[] | null>>;
+  products: ProductsType[] | null;
+  setProducts: React.Dispatch<React.SetStateAction<ProductsType[] | null>>;
+  quantityToAddToCart: number;
+  setQuantityToAddToCart: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export interface CartArrayType {
+  category: string;
+  description: string;
+  image: string;
+  price: number;
+  quantity: number;
+  id: number;
+  rating: {};
+  title: string;
+}
+[];
+
+export interface ProductsType {
+  category: string;
+  description: string;
+  id: number;
+  image: string;
+  price: number;
+  quantity: number;
+  rating: {};
+  title: string;
+}
+[];
+
+export const CartContext = createContext<CartContextType | null>(null);
 
 const App = () => {
-  const [products, setProducts] = useState([{}]);
-  const [cartArray, setCartArray] = useState([]);
+  const [products, setProducts] = useState<ProductsType[] | null>(null);
+  const [cartArray, setCartArray] = useState<CartArrayType[] | null>(null);
   const [quantityToAddToCart, setQuantityToAddToCart] = useState(1);
 
   const router = createBrowserRouter([

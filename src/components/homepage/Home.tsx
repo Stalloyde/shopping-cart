@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import Header from '../header/Header';
 import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../App';
+import { CartContext, CartContextType } from '../../App';
 
 const Home = () => {
-  const { cartArray } = useContext(CartContext);
+  const { cartArray } = useContext(CartContext) as CartContextType;
   return (
     <div className={styles.homeContainer} data-testid='homepage'>
-      <Header cartArray={cartArray} />
+      <Header />
       <main className={styles.homeMain}>
         Welcome to our online store, your one-stop destination for the latest
         trends and must-have items across four exciting categories. Explore our

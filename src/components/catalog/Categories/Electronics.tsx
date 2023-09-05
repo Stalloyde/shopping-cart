@@ -1,29 +1,33 @@
 import React, { useContext } from 'react';
 import Card from '../Card/Card';
 import styles from '../Catalog.module.css';
-import { CartContext } from '../../../App';
+import { CartContext, CartContextType } from '../../../App';
 
 const Electronics = () => {
-  const { products } = useContext(CartContext);
+  const { products } = useContext(CartContext) as CartContextType;
 
-  const filteredProducts = products.filter(
-    (product) => product.category === 'electronics'
-  );
+  if (products) {
+    const filteredProducts = products.filter(
+      (product) => product.category === 'electronics'
+    );
 
-  return (
-    <>
-      {filteredProducts.map((item) => (
-        <Card
-          products={filteredProducts}
-          key={`${item.id}-${item.title}`}
-          productTitle={item.title}
-          src={item.image}
-          productPrice={item.price}
-          id={item.id}
-        />
-      ))}
-    </>
-  );
+    return (
+      <>
+        {filteredProducts.map((item) => (
+          <Card
+            products={filteredProducts}
+            key={`${item.id}-${item.title}`}
+            productTitle={item.title}
+            src={item.image}
+            productPrice={item.price}
+            id={item.id}
+          />
+        ))}
+      </>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default Electronics;

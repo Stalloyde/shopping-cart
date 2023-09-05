@@ -1,23 +1,25 @@
 import React, { useContext } from 'react';
 import Card from '../Card/Card';
 import styles from '../Catalog.module.css';
-import { CartContext } from '../../../App';
+import { CartContext, CartContextType } from '../../../App';
 
 const Electronics = () => {
-  const { products } = useContext(CartContext);
+  const { products } = useContext(CartContext) as CartContextType;
 
   return (
     <>
-      {products.map((item) => (
-        <Card
-          products={products}
-          key={`${item.id}-${item.title}`}
-          productTitle={item.title}
-          src={item.image}
-          productPrice={item.price}
-          id={item.id}
-        />
-      ))}
+      {products
+        ? products.map((item) => (
+            <Card
+              products={products}
+              key={`${item.id}-${item.title}`}
+              productTitle={item.title}
+              src={item.image}
+              productPrice={item.price}
+              id={item.id}
+            />
+          ))
+        : null}
     </>
   );
 };

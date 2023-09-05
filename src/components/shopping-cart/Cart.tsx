@@ -2,21 +2,31 @@ import React, { useContext } from 'react';
 import Header from '../header/Header';
 import styles from './Cart.module.css';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../App';
+import { CartArrayType, CartContext, CartContextType } from '../../App';
 
-export const CartGrids = ({ cartItem }) => {
-  const { cartArray, setCartArray, setQuantityToAddToCart } =
-    useContext(CartContext);
+export const CartGrids: React.FC<{ cartItem: CartArrayType }> = ({
+  cartItem,
+}) => {
+  const { cartArray, setCartArray, setQuantityToAddToCart } = useContext(
+    CartContext
+  ) as CartContextType;
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     cartItem.quantity = Number(e.target.value);
     setQuantityToAddToCart(cartItem.quantity);
   };
 
-  const handleDelete = (e) => {
-    const copy = [...cartArray];
-    const updatedCopy = copy.filter((item) => item.id !== Number(e.target.id));
-    setCartArray([...updatedCopy]);
+  const handleDelete = (e: React.MouseEvent<HTMLElement>) => {
+    if (cartArray) {
+      const copy = [...cartArray];
+      console.log(copy);
+
+      const updatedCopy = copy.filter((item) => {
+        return item.id !== Number(e.currentTarget.id);
+      });
+
+      setCartArray([...updatedCopy]);
+    }
   };
 
   return (
@@ -42,7 +52,7 @@ export const CartGrids = ({ cartItem }) => {
           Subtotal: {`$${(cartItem.price * cartItem.quantity).toFixed(2)}`}
         </div>
         <div className={styles.cartDelete}>
-          <button id={cartItem.id} onClick={handleDelete}>
+          <button id={cartItem.id.toString()} onClick={handleDelete}>
             Remove Item
           </button>
         </div>
@@ -52,22 +62,24 @@ export const CartGrids = ({ cartItem }) => {
 };
 
 const Cart = () => {
-  const { cartArray } = useContext(CartContext);
+  const { cartArray } = useContext(CartContext) as CartContextType;
 
   const sum = () => {
-    const pricexQuantityArray = cartArray.map(
-      (item) => item.price * item.quantity
-    );
-    return pricexQuantityArray
-      .reduce((total, current) => total + current)
-      .toFixed(2);
+    if (cartArray) {
+      const pricexQuantityArray = cartArray.map(
+        (item) => item.price * item.quantity
+      );
+      return pricexQuantityArray
+        .reduce((total, current) => total + current, 0)
+        .toFixed(2);
+    }
   };
 
   return (
     <>
-      <Header cartArray={cartArray} />
+      <Header />
       <main className={styles.cartContainer}>
-        {cartArray.length === 0 ? (
+        {!cartArray || cartArray.length === 0 ? (
           <>
             <aside className={styles.homeBtnContainer}>
               Your shopping cart is currently empty.
@@ -85,7 +97,6 @@ const Cart = () => {
                 <CartGrids
                   cartItem={cartItem}
                   key={`${cartItem.id}-${cartItem.title}`}
-                  id={cartItem.id}
                 />
               ))}
             </section>

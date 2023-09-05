@@ -3,10 +3,23 @@ import './Card.css';
 import { Dialog } from '@mui/material';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import { CartContext } from '../../../App';
+import {
+  CartArrayType,
+  CartContext,
+  CartContextType,
+  ProductsType,
+} from '../../../App';
 
-const Card = ({ products, productTitle, src, productPrice, id }) => {
-  const { cartArray, setCartArray } = useContext(CartContext);
+const Card: React.FC<{
+  products: ProductsType[];
+  productTitle: string;
+  src: string;
+  productPrice: number;
+  id: number;
+}> = ({ products, productTitle, src, productPrice, id }) => {
+  const { cartArray, setCartArray } = useContext(
+    CartContext
+  ) as CartContextType;
   const [isInCart, setIsInCart] = useState(false);
   const [open, setOpen] = useState(false);
   const [qtyValue, setQtyValue] = useState(1);
@@ -15,37 +28,43 @@ const Card = ({ products, productTitle, src, productPrice, id }) => {
     setOpen(false);
   };
 
-  const handleChange = (e) => {
-    setQtyValue(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQtyValue(Number(e.target.value));
   };
 
-  const checkDuplicate = (item) => {
-    const copy = cartArray.map((cartItem) => cartItem);
-    let isDuplicate = false;
+  const checkDuplicate = (item: CartArrayType) => {
+    if (cartArray) {
+      const copy = cartArray.map((cartItem) => cartItem);
+      let isDuplicate = false;
 
-    copy.forEach((copy) => {
-      if (copy.id === item.id) {
-        copy.quantity = item.quantity;
-        isDuplicate = true;
-      }
-    });
-    isDuplicate ? setCartArray([...copy]) : setCartArray([...copy, item]);
-  };
-
-  const handleClick = (e) => {
-    products.forEach((item) => {
-      if (item.id === Number(e.target.id)) {
-        if (!item.quantity) {
-          item.quantity = Number(qtyValue);
-        } else {
-          item.quantity += Number(qtyValue);
+      copy.forEach((copy) => {
+        if (copy.id === item.id) {
+          copy.quantity = item.quantity;
+          isDuplicate = true;
         }
+      });
+      isDuplicate ? setCartArray([...copy]) : setCartArray([...copy, item]);
+    } else {
+      setCartArray([item]);
+    }
+  };
 
-        checkDuplicate(item);
-        setIsInCart(true);
-        setOpen(true);
-      }
-    });
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    if (products) {
+      products.forEach((item: CartArrayType) => {
+        if (item.id === Number(e.currentTarget.id)) {
+          if (!item.quantity) {
+            item.quantity = Number(qtyValue);
+          } else {
+            item.quantity += Number(qtyValue);
+          }
+
+          checkDuplicate(item);
+          setIsInCart(true);
+          setOpen(true);
+        }
+      });
+    }
   };
 
   return (
@@ -84,7 +103,7 @@ const Card = ({ products, productTitle, src, productPrice, id }) => {
               ) : null}
             </div>
             <div>
-              <button id={id} onClick={handleClick}>
+              <button id={id.toString()} onClick={handleClick}>
                 Add To Cart
               </button>
             </div>

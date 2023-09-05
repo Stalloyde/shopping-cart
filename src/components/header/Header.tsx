@@ -1,15 +1,15 @@
 import React, { useState, useContext } from 'react';
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../App';
+import { CartContext, CartContextType } from '../../App';
 import menuIcon from '/menu-icon.svg';
 
 const Header = () => {
   const [isMenuClick, setMenuClick] = useState(false);
-  const { cartArray } = useContext(CartContext);
+  const { cartArray } = useContext(CartContext) as CartContextType;
 
   const qtyInCart = () => {
-    if (cartArray.length > 0) {
+    if (cartArray && cartArray.length > 0) {
       const qtyArray = cartArray.map((item) => item.quantity);
       return qtyArray.reduce((total, current) => total + current);
     }
