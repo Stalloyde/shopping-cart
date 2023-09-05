@@ -24,7 +24,6 @@ describe('Card', () => {
         <CartGrids
           cartItem={cartArray}
           key={`${cartArray.id}-${cartArray.title}`}
-          id={cartArray.id}
         />
       </CartContext.Provider>
     );
@@ -38,7 +37,9 @@ describe('Card', () => {
         `Subtotal: $${(cartArray.price * cartArray.quantity).toFixed(2)}`
       )
     ).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Delete' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Remove Item' })
+    ).toBeInTheDocument();
   });
 
   it('delete button removes cart item', async () => {
