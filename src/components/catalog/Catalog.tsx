@@ -4,11 +4,11 @@ import FilterList from './FilterList/FilterList';
 import FilterListDropDown from './FilterList/FilterListDropDown';
 import styles from './Catalog.module.css';
 import { Outlet } from 'react-router-dom';
-import { CartContext } from '../../App';
+import { CartContext, CartContextType } from '../../App';
 import loading from '../../components/loading.gif';
 
 const Catalog = () => {
-  const { setProducts } = useContext(CartContext);
+  const { setProducts } = useContext(CartContext) as CartContextType;
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const [resized, setResized] = useState(false);
@@ -33,7 +33,7 @@ const Catalog = () => {
         const data = await response.json();
         setProducts(data);
         setErrorMessage(null);
-      } catch (error) {
+      } catch (error: any) {
         setErrorMessage(error.message);
       } finally {
         setIsLoading(false);

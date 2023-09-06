@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from '../Catalog.module.css';
 
 const FilterList = () => {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState(['']);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -21,9 +21,10 @@ const FilterList = () => {
         }
 
         const data = await response.json();
+        console.log(data);
         setCategories(data);
         setErrorMessage(null);
-      } catch (error) {
+      } catch (error: any) {
         setErrorMessage(error.message);
       } finally {
         setIsLoading(false);
