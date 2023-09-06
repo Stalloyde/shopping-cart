@@ -21,7 +21,6 @@ const FilterList = () => {
         }
 
         const data = await response.json();
-        console.log(data);
         setCategories(data);
         setErrorMessage(null);
       } catch (error: any) {
@@ -34,8 +33,8 @@ const FilterList = () => {
     getAllCategories();
   }, []);
 
-  if (isLoading) return <ul>Loading...</ul>;
-  if (errorMessage) return <ul>{errorMessage}</ul>;
+  if (isLoading) return <p>Loading...</p>;
+  if (errorMessage) return <p>{errorMessage}</p>;
 
   return (
     <ul className={styles.filterList}>
