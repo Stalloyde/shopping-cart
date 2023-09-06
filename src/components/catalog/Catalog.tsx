@@ -13,11 +13,17 @@ const Catalog = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [resized, setResized] = useState(false);
 
-  function handleResize() {
-    window.innerWidth <= 950 ? setResized(true) : setResized(false);
-  }
+  useEffect(() => {
+    function handleResize() {
+      window.innerWidth <= 950 ? setResized(true) : setResized(false);
+    }
 
-  window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     async function getAllData() {
@@ -45,9 +51,7 @@ const Catalog = () => {
 
   return (
     <div className={styles.catalogContainer}>
-      <div>
-        <Header />
-      </div>
+      <Header />
       {resized || window.innerWidth <= 950 ? (
         <FilterListDropDown />
       ) : (
@@ -56,7 +60,11 @@ const Catalog = () => {
       <main className={styles.catalogContent}>
         <div className={styles.products}>
           {isLoading ? (
-            <img className={styles.loading} src={loading}></img>
+            <img
+              className={styles.loading}
+              src={loading}
+              alt='loading-gif'
+            ></img>
           ) : errorMessage ? (
             <p className={styles.error}>{errorMessage}</p>
           ) : (
