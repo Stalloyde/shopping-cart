@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import Header from '../header/Header';
 import styles from './Cart.module.css';
 import { Link } from 'react-router-dom';
@@ -14,6 +14,7 @@ export const CartGrids: React.FC<{ cartItem: CartArrayType }> = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     cartItem.quantity = Number(e.target.value);
     setQuantityToAddToCart(cartItem.quantity);
+    console.log(cartArray);
   };
 
   const handleDelete = (e: React.MouseEvent<HTMLElement>) => {
@@ -69,9 +70,13 @@ const Cart = () => {
       const pricexQuantityArray = cartArray.map(
         (item) => item.price * item.quantity
       );
-      return pricexQuantityArray
-        .reduce((total, current) => total + current, 0)
-        .toFixed(2);
+
+      const totalPrice = useMemo(() => {
+        return pricexQuantityArray
+          .reduce((total, current) => total + current, 0)
+          .toFixed(2);
+      }, [pricexQuantityArray]);
+      return totalPrice;
     }
   };
 
