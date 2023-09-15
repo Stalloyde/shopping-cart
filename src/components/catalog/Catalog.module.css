@@ -33,7 +33,13 @@
   justify-content: center;
 }
 
-.loading,
+.loading {
+  position: absolute;
+  top: 10%;
+  left: 45%;
+  width: 10%;
+}
+
 .error {
   position: absolute;
   top: 30%;
