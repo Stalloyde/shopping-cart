@@ -18,7 +18,7 @@
   cursor: pointer;
 }
 
-ul {
+.filterListList {
   padding: 2rem 5rem;
 }
 
@@ -36,7 +36,7 @@ ul {
 .loading,
 .error {
   position: absolute;
-  top: 10%;
+  top: 30%;
   left: 45%;
   width: 10%;
 }

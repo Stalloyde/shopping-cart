@@ -33,8 +33,9 @@ const FilterList = () => {
     getAllCategories();
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (errorMessage) return <p>{errorMessage}</p>;
+  if (isLoading) return <p className={styles.filterListList}>Loading...</p>;
+  if (errorMessage)
+    return <p className={styles.filterListList}>{errorMessage}</p>;
 
   return (
     <ul className={styles.filterList}>

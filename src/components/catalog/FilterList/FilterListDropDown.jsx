@@ -34,8 +34,9 @@ const FilterListDropDown = () => {
     getAllCategories();
   }, []);
 
-  if (isLoading) return <ul>Loading...</ul>;
-  if (errorMessage) return <ul>{errorMessage}</ul>;
+  if (isLoading) return <p className={styles.filterListList}>Loading...</p>;
+  if (errorMessage)
+    return <p className={styles.filterListList}>{errorMessage}</p>;
 
   function handleChange(value) {
     navigate(`${value}`);
