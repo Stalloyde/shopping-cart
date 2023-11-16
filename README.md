@@ -1,4 +1,7 @@
-An front-end E-commerce project that features a variety of products, built with the following - Vite, React, Vitest, TypeScript, CSS modules
+LINK TO LIVE APP:
+https://shopping-cart-green-one.vercel.app/
+
+A front-end E-commerce project that features a variety of products, built with the following - Vite, React, Vitest, TypeScript, CSS modules
 
 This project demonstrates the following skills:
 - Use of TypeScript with React
