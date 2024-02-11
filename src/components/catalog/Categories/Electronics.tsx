@@ -8,7 +8,7 @@ const Electronics = () => {
 
   if (products) {
     const filteredProducts = products.filter(
-      (product) => product.category === 'electronics'
+      (product) => product.category === 'electronics',
     );
 
     return (
